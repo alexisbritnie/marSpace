@@ -1,0 +1,10 @@
+.footer-container {
+    background-color: #f7f6f6;
+    color: #aaaaaa;
+    padding: 1.5rem ;
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+}
