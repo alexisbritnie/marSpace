@@ -2,11 +2,8 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 export default function Navbar(){
     return <nav className="nav">
         <Link to="/" className="site-title">MarSpace</Link>
-
-
         <ul>
         <div class="search-wrapper">
-            
             <input type="search" id = "search" placeholder="Search Classes"/>
         </div>
         

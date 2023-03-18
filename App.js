@@ -1,10 +1,12 @@
-
+//import  "./firebase";
 import './App.css';
 import { Route, Routes} from 'react-router-dom';
 import Navbar from './Navbar';
-import Home from "./pages/Home"
+import Home from "./pages/Home";
 import Signup from './pages/Signup';
-import Login from "./pages/Login"
+import Login from "./pages/Login";
+
+
 
 
 function App() {
@@ -18,9 +20,7 @@ function App() {
         <Route path='/login' element = {<Login />} />
         <Route path='/signup' element = {<Signup/>} />
       </Routes>
-      <footer>
-        
-      </footer>
+      
     </div>
   </>
   )
