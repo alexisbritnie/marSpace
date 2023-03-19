@@ -37,7 +37,8 @@ const addDocu= (event) =>{
     return(
         <div class = "full-screen-container">
         <div class="login-container">
-            <h1 class="login-title">Signup</h1>
+        <h1 class="login-title" style={{fontSize: 39}}>Create an account</h1>
+            <p class="signup-blurb">Sign up now! It's absolutely free!</p>
             <form class="form" onSubmit={addDocu}>
 
                 <div class="input-group success">

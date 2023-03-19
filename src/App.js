@@ -7,7 +7,8 @@ import Signup from './pages/Signup';
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Profile from './pages/Profile';
-
+import {FaSearch} from "react-icons/fa";
+import Footer from './Footer.js';
 
 
 
@@ -27,6 +28,10 @@ function App() {
         <Route path='/profile' element = {<Profile/>} />
 
       </Routes>
+      
+      <footer>
+        <Footer />
+      </footer>
       
     </div>
   </>

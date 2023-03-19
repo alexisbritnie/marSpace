@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.bg {
+  background: linear-gradient(to left, transparent, white), 
+    url(./pages/images/classroom.png);
+  width: 1500px;
+  height: 1000px;
+  background-size: cover;
+  display: flex;
+  margin: auto;
+}
