@@ -2,25 +2,19 @@
     box-sizing: border-box;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
 body{
     margin: 0;
 }
 
-.container{
-    margin: 1rem;
-}
-
 .nav{
-    background-color: rgb(252, 251, 251);
-    color: #ff9019;
+    background-color: rgb(234, 190, 127);
+    color: white;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    padding: 0 1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    height: 4rem;
+    gap: 2rem;
+    padding: 0 2rem;
 }
 
 .nav a{
@@ -33,7 +27,8 @@ body{
 }
 
 .site-title{
-    font-size: 2rem;
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 .nav ul{
@@ -42,62 +37,34 @@ body{
     list-style: none;
     display: flex;
     gap: 2rem;
-    font-size: 1.25rem;
 }
 
-.nav li.active{
-    width: auto;
-    height: 36px;
-    padding: 0px 10px 0px 10px;
-    background: white;
-    color: #ffa834;
-    border-color: #ffa834;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 5px 5px 5px 5px;
-}
-
-.nav li:hover{
-    width: auto;
-    height: 36px;
-    padding: 0px 10px 0px 10px;
-    background: #ffa834;
-    color: white;
-    border-color: #ffa834;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 5px 5px 5px 5px;
-}
-
-/*Search Bar*/
+/* Search bar stuff */
 .search-wrapper{
-    margin-top: 0px;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    width: 300px;
-    padding-top: 10px;
+    gap: .5rem;
+   
     
-
+    width:80%;
+    max-width:600px;
     border-radius: 20px;
     background-color:white ;
-    box-shadow: 5px 3px 5px rgb(185, 185, 185);
-    padding: 10px 20px;
+
+    box-shadow: 0 0 15px rgb(156, 113, 55);
+    padding: 20px 200px;
+    
+}
+.search-wrapper  input{
+    color: aquamarine;
+}
+/*card stuff*/
+.input{
+    font-size: 2rem;
+    width: 100%
     
 }
 
-.searchIcon{
-    font-size: 25px;
-    margin-top: 10px;
-    margin-right: -20px;
-}
-
-.input{
-    font-size: 4rem;
-    width: 100%;
-}
-
-/*Card Stuff*/
 .class-cards{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -122,31 +89,17 @@ body{
 .hide{
     display: none;
 }
-
-/*Text Stuff*/
-.home-letter{
-    color: #ff9019;
-    font-size: 18px;
-    margin-left: 50px;
-    margin-top: 80px;
-    word-spacing: -2px;
+.nav li.active{
+    background-color: rgb(229, 170, 87);
 }
 
-.home-letter2{
-    color: #929292;
-    font-size: 18px;
-    margin-top: -10px;
-    word-spacing: 0px;
+.nav li:hover{
+    background-color: rgb(229, 170, 87);
 }
-
-
-
-
-
 
 /* login page stuff*/
 .full-screen-container{
-    background-color: #ffdfbb;
+    background-color: #e8c195;
     height: 100vh;
     width:100vw;
     display: flex;
@@ -160,8 +113,9 @@ body{
     margin:0;
     color: #444444;
     text-align: center;
-    font-size: 3.0rem;
+    font-size: 3.5rem;
     font-weight: bold;
+
 }
 
 .login-container{
@@ -226,7 +180,7 @@ body{
     font-size: 1.5rem;
     font-weight: normal;
     color: white;
-    background-color: rgb(144, 225, 252);
+    background-color: lightblue;
     box-shadow: 0 0 0 3px rgba(14, 102, 131, 0.347);
     border:none;
     border-radius: 10px;
@@ -238,8 +192,3 @@ body{
     
 }
 
-.signup-blurb{
-    color: #999999;
-    text-align: center;
-    font-weight: bold;
-}
