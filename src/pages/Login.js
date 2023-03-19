@@ -1,18 +1,65 @@
 import { useState} from "react";
 import { Link} from "react-router-dom";
 import React from 'react';
+import {initializeApp} from 'firebase/app';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
+
 
 
 export default function Login(){
+    const firebaseConfig = {
+        apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
+        authDomain: "marspace-1afb7.firebaseapp.com",
+        projectId: "marspace-1afb7",
+        storageBucket: "marspace-1afb7.appspot.com",
+        messagingSenderId: "936429184235",
+        appId: "1:936429184235:web:f1ddee1d9a9e2f17b44aae",
+        measurementId: "G-5SSF4M5BTB"
+      };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db=getFirestore(app);
+
+//Fetching
+const[creditCheck, setCreditCheck]=useState({username:"",password:""});
+const handleChanges=(event)=>{
+  event.preventDefault();
+  const{name,value}=event.target;
+  setCreditCheck((prev) =>{
+    return{...prev,[name]:value}
+  })
+}
+async function addDocument (event) {
+    event.preventDefault();
+    var userid=true;
+    var passid=false
+    const q1= query(collection(db, "Credential"), where("username", "==", creditCheck.username));
+    const q2= query(collection(db, "Credential"),  where("password", "==", creditCheck.password));
+    const querySnapshot1 =  await getDocs(q1);
+    querySnapshot1.forEach((doc) => {
+      userid=doc.id;
+  });
+  const querySnapshot2 =  await getDocs(q2);
+    querySnapshot2.forEach((doc) => {
+      passid=doc.id;
+  });
+{/* if good, take to dashboard, if not error message to try logging in again*/}
+  if( userid === passid){
+    console.log("Good")
+   }else{
+    console.log("Bad")
+   }}
+
 
     return(
         <div class = "full-screen-container">
         <div class="login-container">
-            <h1 class="login-title">Log in</h1>
-            <form class="form" >
+            <h1 class="login-title">Login</h1>
+            <form class="form" onSubmit={addDocument} >
                 <div class="input-group success">
                     {/* <label for="email"> Email</label> */}
-                    <input type="email" name="username" id = "username" placeholder="Email">
+                    <input type="email" name="username" id = "username"  value={creditCheck.username} onChange={handleChanges}  placeholder="Email">
                     </input>
                     <span class="msg">Valid Email</span>
                 </div>
@@ -20,14 +67,12 @@ export default function Login(){
                 <div class="input-group error">
                     {/*<label for="password"> Password</label>*/}
                     <input 
-                    type="password" name="password" id = "password" placeholder="Password">
+                    type="password" name="password" id = "password" value={creditCheck.password} onChange={handleChanges}  placeholder="Password">
                     </input>
                     <span class="msg">Incorrect Password</span>
                 </div>
 
-                <button 
-                type = "submit" 
-                class="login-button">Log in
+                <button type = "submit" class="login-button">Login
                 </button>
 
                 <div>
