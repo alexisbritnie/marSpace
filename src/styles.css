@@ -8,7 +8,7 @@ body{
 }
 
 .container{
-    margin: 1rem;
+    margin: 0rem;
 }
 
 .nav{
@@ -20,8 +20,7 @@ body{
     justify-content: space-evenly;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    padding: 0 1rem;
+    
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     height: 4rem;
@@ -248,3 +247,151 @@ body{
     
 }
 
+/* Dashboard page */
+.dash-full-screen-container{
+    background-color: #ffdfbb;
+    height: 100vh;
+    width:auto;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: left;
+}
+.dashboard-container{
+    box-sizing: border-box;
+    background-color:rgb(202, 230, 239);
+    box-shadow: 0 0 15px rgb(156, 113, 55);
+    height: 90vh;
+    
+    padding-right: 0px;
+    width:90%;
+    max-width:inherit;
+    border-radius: 20px;
+    margin-top:40px;
+    justify-content:start;
+    position: relative;
+
+}
+.side-bar-form{
+    background-color: rgb(230, 173, 182);
+    height:100%;
+    width: 20%;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: left;
+    margin:0;
+    border-radius: 20px;
+}
+.dashboard-title{
+    margin: 0;
+    font-size: 3vw;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration:underline;
+}
+.dash-button{
+    
+    border: none;
+    width: 80%;
+    display: block;
+    height: 50px;
+    padding:  2px 2px;
+    font-size: 30px;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    background-color: rgba(240, 240, 240, 0.924);
+    box-shadow: 0 0 0 3px rgba(14, 102, 131, 0.347);
+   
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    margin-bottom: 10;
+    text-align: center;
+    text-justify: center;
+}
+
+.dash-button button{
+    border:none;
+    background-color: rgba(79, 21, 129, 0.175);
+    
+    margin: 5px;
+    text-align: center;
+    padding: 5px;
+}
+.dash-button:hover {
+    background-color: #962d8f; /* Green */
+    color: white;
+  }
+.dash-profile-card{
+    background-color: lightblue;
+    height: 50px;
+    margin: 10px;
+    text-align: right;
+    align-items: center;
+    font-size: 5px;
+}
+/*dash class cards */
+.card-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap:1rem;
+    align-items: flex-start;
+    position: absolute;
+    top:10px;
+    bottom: 10px;
+    left: 22%;
+    right: 10px;
+    
+    height: 90%;
+    width: 70%;
+}
+.dash-class-cards {
+    background: grey;
+    padding:1rem;
+    border:none;
+    box-shadow: 0 02px 5px 0 rgba(0, 0, 0, 0.225);
+    border-radius: .25rem;
+    
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.dash-class-card-header{
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+.dash-class-card-header.card-image{
+    overflow: hidden;
+}
+.dash-class-card-header.card-image >img{
+    display: block;
+    width: 100%;
+    max-height: 150px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    transition: 200ms transform ease-in-out;
+}
+/*  zoom in affect when hover over cards */
+.dash-class-cards:hover > .dash-class-card-header.card-image >img{
+    transform: scale(1.5);
+}
+.dash-class-card-body{
+    font-size: .9rem;
+}
+.dashboard-container ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    
+}
