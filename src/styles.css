@@ -2,30 +2,25 @@
     box-sizing: border-box;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-
 body{
     margin: 0;
 }
 
 .container{
-    margin: 0rem;
+    margin: 1rem;
 }
 
 .nav{
     background-color: rgb(252, 251, 251);
     color: #ff9019;
-    background-color: rgb(234, 190, 127);
-    color: white;
     display: flex;
     justify-content: space-evenly;
-    justify-content: space-between;
     align-items: center;
-    
+    gap: 1rem;
+    padding: 0 1rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     height: 4rem;
-    gap: 2rem;
-    padding: 0 2rem;
 }
 
 .nav a{
@@ -39,7 +34,6 @@ body{
 
 .site-title{
     font-size: 2rem;
-    font-weight: bold;
 }
 
 .nav ul{
@@ -75,7 +69,7 @@ body{
     border-radius: 5px 5px 5px 5px;
 }
 
-/* Search bar stuff */
+/*Search Bar*/
 .search-wrapper{
     margin-top: 0px;
     display: flex;
@@ -83,29 +77,31 @@ body{
     gap: 2.5rem;
     width: 300px;
     padding-top: 10px;
+    
+    
     border-radius: 20px;
     background-color:white ;
     box-shadow: 5px 3px 5px rgb(185, 185, 185);
     padding: 10px 20px;
-
+    
 }
+
+.search-wrapper input{
+    border: none;
+}
+
 .searchIcon{
     font-size: 25px;
     margin-top: 10px;
     margin-right: -20px;
 }
 
-.search-wrapper  input{
-    border:none;
-}
-
-/*card stuff*/
 .input{
     font-size: 4rem;
     width: 100%;
-    
 }
 
+/*Card Stuff*/
 .class-cards{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -131,7 +127,7 @@ body{
     display: none;
 }
 
-/*Text Stuff for homepage */
+/*Text Stuff*/
 .home-letter{
     color: #ff9019;
     font-size: 18px;
@@ -139,12 +135,14 @@ body{
     margin-top: 80px;
     word-spacing: -2px;
 }
+
 .home-letter2{
     color: #929292;
     font-size: 18px;
     margin-top: -10px;
     word-spacing: 0px;
 }
+
 
 /* login page stuff*/
 .full-screen-container{
@@ -164,7 +162,6 @@ body{
     text-align: center;
     font-size: 3.0rem;
     font-weight: bold;
-
 }
 
 .login-container{
@@ -174,12 +171,6 @@ body{
     width:80%;
     max-width:600px;
     border-radius: 20px;
-}
-
-.signup-blurb{
-    color: #999999;
-    text-align: center;
-    font-weight: bold;
 }
 
 .form{
@@ -247,6 +238,14 @@ body{
     
 }
 
+.signup-blurb{
+    color: #999999;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
 /* Dashboard page */
 .dash-full-screen-container{
     background-color: #ffdfbb;
@@ -260,21 +259,21 @@ body{
 }
 .dashboard-container{
     box-sizing: border-box;
-    background-color:rgb(202, 230, 239);
-    box-shadow: 0 0 15px rgb(156, 113, 55);
+    background-color:rgb(230, 249, 255);
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
     height: 90vh;
     
     padding-right: 0px;
     width:90%;
     max-width:inherit;
-    border-radius: 20px;
+    border-radius: 6px 6px 6px 6px;
     margin-top:40px;
     justify-content:start;
     position: relative;
 
 }
 .side-bar-form{
-    background-color: rgb(230, 173, 182);
+    background-color: rgb(145, 228, 251);
     height:100%;
     width: 20%;
     display: inline-block;
@@ -283,10 +282,11 @@ body{
     justify-content: center;
     align-items: left;
     margin:0;
-    border-radius: 20px;
+    border-radius: 6px 20px 20px 6px;
 }
 .dashboard-title{
-    margin: 0;
+    margin-top: 25px;
+    margin-bottom: 0px;
     font-size: 3vw;
     font-weight: bold;
     display: flex;
@@ -294,79 +294,90 @@ body{
     justify-content: center;
     padding: 5px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-decoration:underline;
+    
+    color: white;
 }
 .dash-button{
-    
+    width: 300px;
+    margin-left: 18px;
+    margin-top: 25px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    display: block;
+    background-color: rgba(240, 240, 240, 0.924);
+    margin-top: 40px;
+}
+.dash-button button{
     border: none;
     width: 80%;
     display: block;
     height: 50px;
     padding:  2px 2px;
-    font-size: 30px;
     font-weight: normal;
-    color: rgb(0, 0, 0);
-    background-color: rgba(240, 240, 240, 0.924);
-    box-shadow: 0 0 0 3px rgba(14, 102, 131, 0.347);
-   
+    box-shadow: 0 0 0 3px rgb(24, 148, 189);
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    margin: 5px;
-    margin-bottom: 10;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0);
     text-align: center;
-    text-justify: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
 }
-
-.dash-button button{
-    border:none;
-    background-color: rgba(79, 21, 129, 0.175);
-    
-    margin: 5px;
-    text-align: center;
-    padding: 5px;
-}
-.dash-button:hover {
-    background-color: #962d8f; /* Green */
+.dash-button button:hover {
+    background-color: rgb(25, 146, 187);
     color: white;
   }
+
 .dash-profile-card{
-    background-color: lightblue;
-    height: 50px;
-    margin: 10px;
-    text-align: right;
+    background-color: #e6f9ff;
+    box-shadow: 7px 7px 7px rgba(59, 141, 167, 0.637);
+    width: 300px;
+    height: 91px;
+    margin-left: 18px;
+    margin-top: 25px;
+    text-align: center;
     align-items: center;
-    font-size: 5px;
+    font-size: 12px;
+    line-height: 3.7;
+    border-radius: 3px 3px 3px 3px;
 }
 /*dash class cards */
 .card-grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,250px));
     gap:1rem;
     align-items: flex-start;
     position: absolute;
-    top:10px;
+    top:50px;
     bottom: 10px;
-    left: 22%;
+    left: 25%;
     right: 10px;
     
     height: 90%;
-    width: 70%;
+    overflow: hidden;
+    width: 90%;
 }
 .dash-class-cards {
-    background: grey;
+    background: rgb(255, 255, 255);
     padding:1rem;
     border:none;
-    box-shadow: 0 02px 5px 0 rgba(0, 0, 0, 0.225);
+    box-shadow: 7px 7px 7px rgb(191, 206, 211);
     border-radius: .25rem;
     
-    max-width: 200px;
+    height: 300px;
+    width: 250px;
     overflow: hidden;
 }
 
 .dash-class-card-header{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: .5rem;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 .dash-class-card-header.card-image{
     overflow: hidden;
@@ -377,7 +388,7 @@ body{
     max-height: 150px;
     aspect-ratio: 16/9;
     object-fit: cover;
-    object-position: center;
+    object-position: start;
     transition: 200ms transform ease-in-out;
 }
 /*  zoom in affect when hover over cards */
@@ -385,7 +396,10 @@ body{
     transform: scale(1.5);
 }
 .dash-class-card-body{
-    font-size: .9rem;
+    font-size: 1.3rem;
+    color:#747474;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .dashboard-container ul{
     padding: 0;

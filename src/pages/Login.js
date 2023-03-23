@@ -5,8 +5,8 @@ import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 
 
-
 export default function Login(){
+
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
         authDomain: "marspace-1afb7.firebaseapp.com",
@@ -55,11 +55,11 @@ async function addDocument (event) {
     return(
         <div class = "full-screen-container">
         <div class="login-container">
-            <h1 class="login-title">Login</h1>
-            <form class="form" onSubmit={addDocument} >
+            <h1 class="login-title">Log in</h1>
+            <form class="form" >
                 <div class="input-group success">
                     {/* <label for="email"> Email</label> */}
-                    <input type="email" name="username" id = "username"  value={creditCheck.username} onChange={handleChanges}  placeholder="Email">
+                    <input type="email" name="username" id = "username" value={creditCheck.username} onChange={handleChanges} placeholder="Email">
                     </input>
                     <span class="msg">Valid Email</span>
                 </div>
@@ -67,12 +67,14 @@ async function addDocument (event) {
                 <div class="input-group error">
                     {/*<label for="password"> Password</label>*/}
                     <input 
-                    type="password" name="password" id = "password" value={creditCheck.password} onChange={handleChanges}  placeholder="Password">
+                    type="password" name="password" id = "password" value={creditCheck.password} onChange={handleChanges} placeholder="Password">
                     </input>
                     <span class="msg">Incorrect Password</span>
                 </div>
 
-                <button type = "submit" class="login-button">Login
+                <button 
+                type = "submit" 
+                class="login-button">Log in
                 </button>
 
                 <div>

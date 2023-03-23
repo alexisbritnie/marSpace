@@ -1,14 +1,7 @@
 import { useState} from "react";
 import { Link} from "react-router-dom";
 import React from 'react';
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn
-} from 'mdb-react-ui-kit';
+
 
 
 export default function Dashboard(){
@@ -49,20 +42,86 @@ export default function Dashboard(){
                 <div class= "dash-class-cards">
                     <div class="dash-class-card-header card-image">
                     <img src="https://source.unsplash.com/D9Zow2REm8U" />
-                    CSIS2101</div>
-                    <div class="dash-class-card-body"> fundementals of computer programming</div>
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
                 </div>
                 <div class= "dash-class-cards">
                     <div class="dash-class-card-header card-image">
                     <img src="https://source.unsplash.com/95YRwf6CNw8" />
-                    CSIS2101</div>
-                    <div class="dash-class-card-body"> fundementals of computer programming</div>
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
                 </div>
                 <div class= "dash-class-cards">
                     <div class="dash-class-card-header card-image">
                     <img src="https://source.unsplash.com/95YRwf6CNw8" />
-                    CSIS2101</div>
-                    <div class="dash-class-card-body"> fundementals of computer programming</div>
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
                 </div>
                 
             </div>

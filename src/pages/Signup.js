@@ -4,8 +4,8 @@ import React from 'react';
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 
-
 export default function Signup(){
+
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
         authDomain: "marspace-1afb7.firebaseapp.com",
@@ -33,18 +33,18 @@ const addDocu= (event) =>{
     password: credit.password
   })}
 
-
+    
     return(
         <div class = "full-screen-container">
         <div class="login-container">
-        <h1 class="login-title" style={{fontSize: 39}}>Create an account</h1>
+            <h1 class="login-title" style={{fontSize: 39}}>Create an account</h1>
             <p class="signup-blurb">Sign up now! It's absolutely free!</p>
-            <form class="form" onSubmit={addDocu}>
+            <form class="form">
 
                 <div class="input-group success">
                     {/* <label for="email"> Email</label> */}
-                    <input type="email" name="username" id = "email" value={credit.username} onChange={handleChange} placeholder="email"></input>
-                    <span class="msg">Valid email</span>
+                    <input type="email" name=" email" id = "email" value={credit.username} onChange={handleChange} placeholder="Email"></input>
+                    <span class="msg">Valid Email</span>
                 </div>
 
                 <div class="input-group error">
@@ -53,12 +53,12 @@ const addDocu= (event) =>{
                     <span class="msg">Password doesn't meet requirements</span>
                 </div>
 
-                <button type = "submit" class="login-button">Login </button>
-
+                <button type = "submit" class="login-button">Sign up</button>
                 <div>
                     Already have an account? Click <Link to="/login">here</Link> to log in!
                 </div>
             </form>
+
         </div>
       </div>
     )

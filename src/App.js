@@ -1,4 +1,4 @@
-//import  "./firebase";
+
 import './App.css';
 import { Route, Routes} from 'react-router-dom';
 import Navbar from './Navbar';
@@ -13,26 +13,24 @@ import Footer from './Footer.js';
 
 
 function App() {
- 
+  let Component
   return (
   <>
     <Navbar />
     <div className='container'>
       <Routes>
         <Route path='/' element = {<Home />} />
-        <Route path='/login' element = {<Login />} />
+        <Route path='/login' element = {<Login/>} />
         <Route path='/signup' element = {<Signup/>} />
 
         {/*temp */}
         <Route path='/dashboard' element = {<Dashboard/>} />
         <Route path='/profile' element = {<Profile/>} />
-
       </Routes>
       
       <footer>
         <Footer />
       </footer>
-      
     </div>
   </>
   )
