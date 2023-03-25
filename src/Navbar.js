@@ -17,6 +17,7 @@ export default function Navbar(){
             {/*temp for viewing */}
             <CustomLink to = "/dashboard">Dashboard</CustomLink> 
             <CustomLink to = "/profile">Profile</CustomLink>
+            <CustomLink to = "/classroom">Classroom</CustomLink>
         </ul>
     </nav>
 }

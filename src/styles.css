@@ -148,7 +148,7 @@ body{
 .full-screen-container{
     background-color: #ffdfbb;
     height: 100vh;
-    width:100vw;
+    width:auto;
     display: flex;
     background-size: cover;
     background-position: center;
@@ -277,8 +277,6 @@ body{
     height:100%;
     width: 20%;
     display: inline-block;
-    background-size: cover;
-    background-position: center;
     justify-content: center;
     align-items: left;
     margin:0;
@@ -348,17 +346,17 @@ body{
 .card-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,250px));
-    gap:1rem;
+    gap:.75rem;
     align-items: flex-start;
     position: absolute;
     top:50px;
     bottom: 10px;
-    left: 25%;
+    left: 23%;
     right: 10px;
     
     height: 90%;
-    overflow: hidden;
-    width: 90%;
+    overflow:auto;
+    width: 75%;
 }
 .dash-class-cards {
     background: rgb(255, 255, 255);
@@ -369,9 +367,8 @@ body{
     
     height: 300px;
     width: 250px;
-    overflow: hidden;
+    
 }
-
 .dash-class-card-header{
     font-size: 1.7rem;
     margin-bottom: .5rem;
@@ -408,4 +405,104 @@ body{
     display: flex;
     gap: 2rem;
     
+}
+
+
+
+/* Classroom page */
+.classroom-full-screen-container{
+    background-color: #ffdfbb;
+    height:auto;
+    width:auto;
+    display: grid;
+    justify-items: center;
+    align-content:start;
+    padding-bottom: 30px;
+}
+.class-title-bar{
+    background-color:white ;
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
+    padding: 10px 10px;
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    margin-top:30px;
+}
+.class-title{
+    margin:0;
+    color: #444444;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.note-name{
+    margin:0;
+    margin-left: 15px;
+    color: black;
+    text-align: left;
+    font-size: 1.25rem;
+}
+.note-description{
+    margin-top:5px;
+    margin-left: 15px;
+    color: black;
+    text-align: left;
+    font-size: 1rem;
+}
+/*Upload Notes Box*/
+.upload-notes-container{
+    box-sizing: border-box;
+    background-color:white;
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
+    height: 400px;
+    padding: 20px;
+    width:80%;
+    max-width:inherit;
+    border-radius: 6px;
+    margin-top:30px;
+    justify-content:start;
+    display: -ms-grid;
+}
+.upload-doc-container{
+    background-color:rgba(197, 242, 255, 0.856);
+    height: 250px;
+    padding: 20px;
+    width: 100%;
+    max-width:inherit;
+    border-radius: 6px;
+    margin-top: 55px;
+    justify-content:center;
+    align-items: center;
+    display: flex;
+}
+.uploadFileIcon{
+    font-size: 75px;
+    /*color:#ff9019; orange*/
+    color:#444444; /*black*/
+}
+/*Kumar's Notes Stuff (2nd box)*/
+.classroom-container{
+    box-sizing: border-box;
+    background-color:white;
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
+    height: 600px;
+    padding: 20px;
+    width:80%;
+    max-width:inherit;
+    border-radius: 6px;
+    margin-top:30px;
+    justify-content:start;
+    display: -ms-grid;
+}
+.class-notes-container{
+    background-color:rgba(197, 242, 255, 0.856);
+    height: 350px;
+    padding: 20px;
+    width: 100%;
+    max-width:inherit;
+    border-radius: 6px;
+    margin-top: 55px;
+    justify-content:center;
+    align-items: center;
+    display: flex;
 }

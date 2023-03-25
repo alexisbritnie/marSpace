@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from './pages/Profile';
 import {FaSearch} from "react-icons/fa";
 import Footer from './Footer.js';
+import Classroom from './pages/Classroom';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         {/*temp */}
         <Route path='/dashboard' element = {<Dashboard/>} />
         <Route path='/profile' element = {<Profile/>} />
+        <Route path='/classroom' element = {<Classroom/>} />
       </Routes>
       
       <footer>
