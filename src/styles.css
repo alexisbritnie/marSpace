@@ -281,9 +281,10 @@ body{
     align-items: left;
     margin:0;
     border-radius: 6px 20px 20px 6px;
+    padding: 25px;
 }
 .dashboard-title{
-    margin-top: 25px;
+    margin-top: 0px;
     margin-bottom: 0px;
     font-size: 3vw;
     font-weight: bold;
@@ -292,12 +293,10 @@ body{
     justify-content: center;
     padding: 5px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
     color: white;
 }
 .dash-button{
-    width: 300px;
-    margin-left: 18px;
+    width: 100%;
     margin-top: 25px;
     border-radius: 10px;
     outline: none;
@@ -308,7 +307,7 @@ body{
 }
 .dash-button button{
     border: none;
-    width: 80%;
+    width: 100%;
     display: block;
     height: 50px;
     padding:  2px 2px;
@@ -317,7 +316,6 @@ body{
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    width: 300px;
     background-color: rgba(255, 255, 255, 0);
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -332,15 +330,17 @@ body{
 .dash-profile-card{
     background-color: #e6f9ff;
     box-shadow: 7px 7px 7px rgba(59, 141, 167, 0.637);
-    width: 300px;
+    width: 100%;
     height: 91px;
-    margin-left: 18px;
     margin-top: 25px;
-    text-align: center;
+    display: flex;
     align-items: center;
-    font-size: 12px;
-    line-height: 3.7;
+    justify-content: center;
     border-radius: 3px 3px 3px 3px;
+    overflow: hidden;
+}
+.dash-name{
+    font-size: 25px;
 }
 /*dash class cards */
 .card-grid{
@@ -353,7 +353,6 @@ body{
     bottom: 10px;
     left: 23%;
     right: 10px;
-    
     height: 90%;
     overflow:auto;
     width: 75%;
@@ -485,7 +484,7 @@ body{
     box-sizing: border-box;
     background-color:white;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: 600px;
+    height: 580px;
     padding: 20px;
     width:80%;
     max-width:inherit;
@@ -505,4 +504,20 @@ body{
     justify-content:center;
     align-items: center;
     display: flex;
+}
+.arrowUp{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 90px;
+}
+.arrowDown{
+    font-size: 30px;
+    margin-left: 90px;
+}
+.comment-button{
+    margin: 0;
+    margin-left: 300px;
+    color: black;
+    text-align: left;
+    font-size: 1.25rem;
 }

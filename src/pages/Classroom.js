@@ -1,7 +1,9 @@
 import { useState} from "react";
 import { Link} from "react-router-dom";
 import React from 'react';
-import { FaFileUpload } from "react-icons/fa";
+import { FaArrowCircleUp, FaFileUpload } from "react-icons/fa";
+import { FaArrowCircleDown } from "react-icons/fa";
+
 
 
 
@@ -24,6 +26,9 @@ export default function Classroom(){
                 difference between array and list from Python. I hope you guys like my notes.</p>
                 <div class = "class-notes-container">
                 </div>
+                <FaArrowCircleUp class='arrowUp'/>
+                <FaArrowCircleDown class='arrowDown'/>
+                <p class="comment-button">Comment</p>
             </div>
         </div>
     )

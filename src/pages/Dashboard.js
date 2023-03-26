@@ -109,10 +109,6 @@ export default function Dashboard(){
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" >Search</button>
-                </div>
-
-                <div class="dash-button">
                     <button type = "submit" >My Notes</button>
                 </div>
 
