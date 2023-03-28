@@ -1,11 +1,19 @@
 import { useState} from "react";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import React from 'react';
 
 
 
 export default function Dashboard(){
+   const navigate = useNavigate();
+   const navigateToProfile = () => {navigate('/profile')};
+   const navigateToNotes = () => {navigate('/notes')};
+   const navigateToSavedMaterials = () => {navigate('/materials')};
+   const navigateToSettings = () => {navigate('/settings')};
+   
     return (
+
+        
         <div class = "dash-full-screen-container">
         <div class="dashboard-container">
         <div class="card-grid">
@@ -75,26 +83,9 @@ export default function Dashboard(){
                     CSIS 2101</div>
                     <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
                 </div>
-                <div class= "dash-class-cards">
-                    <div class="dash-class-card-header card-image">
-                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
-                    CSIS 2101</div>
-                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
-                </div>
-                <div class= "dash-class-cards">
-                    <div class="dash-class-card-header card-image">
-                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
-                    CSIS 2101</div>
-                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
-                </div>
-                <div class= "dash-class-cards">
-                    <div class="dash-class-card-header card-image">
-                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
-                    CSIS 2101</div>
-                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
-                </div>
+               
                 
-            </div>
+            </div>np
             <div class="side-bar-form" >
                 <h1 class="dashboard-title">Dashboard</h1>
                 
@@ -105,18 +96,21 @@ export default function Dashboard(){
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" >My Profile</button>
+                    <button type = "submit" onClick={navigateToProfile}>My Profile</button>
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" >My Notes</button>
+                    <button type = "submit" onClick={navigateToNotes}>My Notes</button>
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" >Saved Materials</button>
+                    <button type = "submit" onClick={navigateToSavedMaterials}>Saved Materials</button>
                 </div>
                 <div class="dash-button">
-                    <button type = "submit" >Settings</button>
+                    <button type = "submit" onClick={navigateToSettings}>Settings</button>
+                </div>
+                <div class="dash-button">
+                    <button type = "submit" onClick={navigateToSettings}>Logout</button>
                 </div>
                 
             </div>

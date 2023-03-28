@@ -521,3 +521,106 @@ body{
     text-align: left;
     font-size: 1.25rem;
 }
+/* My Notes Page */
+.notes-full-screen-container{
+    background-color: #ffdfbb;
+    height: 100vh;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+.upload-box{
+    background-color: rgb(145, 228, 251);
+    height:15%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+    border-style: solid;
+    border: white;
+    border-width: thick;
+    border-radius: 20px;
+
+}
+.upload-box h1{
+    text-align:center;
+    font-size: small;
+}
+.past-upload-box{
+    background-color: rgb(255, 255, 255);
+    height:90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: left;
+    margin:0px;
+    border-radius: 20px;
+    padding:10px;
+}
+.header{
+    font-size: medium;
+}
+.body{
+    font-size: x-small;
+}
+.doc-carousel{
+    background-color: rgb(145, 228, 251);
+    height:90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-style: solid;
+    border: white;
+    border-width: thick;
+    border-radius: 20px;
+}
+/*profile page */
+.profile-full-screen-container{
+    background-color: #ffdfbb;
+    height: 100vh;
+    width:auto;
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+    background-position: center;
+    align-items: left;
+}
+.profile-pic-square{
+    background: 
+      url(./pages/images/classroom.png);
+    width: 200px;
+    height: 250px;
+    background-size: cover;
+    display: flex;
+    margin: 30px;
+   padding: 10px;
+  }
+  
+.user-card{
+    background-color: rgb(255, 255, 255);
+    width: 20%;
+    min-width: 250px;
+    height: 400px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+
+}
+.profile-folder{
+    background-color: rgb(134, 228, 235);
+    width: 60%;
+    height: 90%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
