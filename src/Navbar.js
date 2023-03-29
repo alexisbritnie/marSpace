@@ -79,6 +79,7 @@ async function show(event) {
             {/*temp for viewing */}
             <CustomLink to = "/dashboard">Dashboard</CustomLink> 
             <CustomLink to = "/classroom">Classroom</CustomLink>
+            <CustomLink to = "/profile">Profile</CustomLink>
         </ul>
     </nav>
 }

@@ -7,21 +7,16 @@ import Signup from './pages/Signup';
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Profile from './pages/Profile';
-import Notes from './pages/Notes';
+import {FaSearch} from "react-icons/fa";
+import Footer from './Footer.js';
 import Classroom from './pages/Classroom';
 import Materials from './pages/Materials';
 import Settings from './pages/Settings';
-import {FaSearch} from "react-icons/fa";
-import Footer from './Footer.js';
-import React,{useState} from 'react';
-import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
-import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+
+
 
 
 function App() {
- 
-
   let Component
   return (
   <>
@@ -35,7 +30,6 @@ function App() {
         {/*temp */}
         <Route path='/dashboard' element = {<Dashboard/>} />
         <Route path='/profile' element = {<Profile/>} />
-        <Route path='/notes' element = {<Notes/>} />
         <Route path='/classroom' element = {<Classroom/>} />
         <Route path='/materials' element = {<Materials/>} />
         <Route path='/settings' element = {<Settings/>} />

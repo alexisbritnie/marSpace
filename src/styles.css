@@ -408,6 +408,7 @@ body{
 
 
 
+
 /* Classroom page */
 .classroom-full-screen-container{
     background-color: #ffdfbb;
@@ -440,6 +441,7 @@ body{
     color: black;
     text-align: left;
     font-size: 1.25rem;
+    font-weight: bold;
 }
 .note-description{
     margin-top:5px;
@@ -495,7 +497,7 @@ body{
 }
 .class-notes-container{
     background-color:rgba(197, 242, 255, 0.856);
-    height: 350px;
+    height: 375px;
     padding: 20px;
     width: 100%;
     max-width:inherit;
@@ -507,7 +509,7 @@ body{
 }
 .arrowUp{
     font-size: 30px;
-    margin-top: 30px;
+    margin-top: 27px;
     margin-left: 90px;
 }
 .arrowDown{
@@ -520,7 +522,22 @@ body{
     color: black;
     text-align: left;
     font-size: 1.25rem;
+    margin-top: -30px;
+    font-weight: bold;
 }
+.download-button{
+    margin: 0;
+    margin-left: 450px;
+    color: black;
+    text-align: left;
+    font-size: 1.25rem;
+    margin-top: -24px;
+    font-weight: bold;
+}
+
+
+
+
 /* My Notes Page */
 .notes-full-screen-container{
     background-color: #ffdfbb;
@@ -581,6 +598,10 @@ body{
     border-width: thick;
     border-radius: 20px;
 }
+
+
+
+
 /*profile page */
 .profile-full-screen-container{
     background-color: #ffdfbb;

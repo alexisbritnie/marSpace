@@ -6,7 +6,6 @@ import { FaArrowCircleDown } from "react-icons/fa";
 
 
 
-
 export default function Classroom(){
     return (
         <div class = "classroom-full-screen-container">
@@ -29,6 +28,7 @@ export default function Classroom(){
                 <FaArrowCircleUp class='arrowUp'/>
                 <FaArrowCircleDown class='arrowDown'/>
                 <p class="comment-button">Comment</p>
+                <p class="download-button">Download</p>
             </div>
         </div>
     )

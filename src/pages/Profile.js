@@ -2,6 +2,9 @@ import { useState} from "react";
 import { Link, useNavigate} from "react-router-dom";
 import React from 'react';
 import images from './images/classroom.png';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+
 export default function Profile(){
 
     return (
@@ -15,20 +18,21 @@ export default function Profile(){
             <div className="profile-folder">
                 <h1 className="about-title">About</h1>
                 <label>
-                    Name: <input name="myInput" />
+                    Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
                 <label>
-                    Major: <input name="myInput" />
+                    Major: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
                 <label>
-                    Minor(s): <input name="myInput" />
+                    Minor(s): <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
                 <label>
-                    Name: <input name="myInput" />
+                    Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
 
                 <p>
                     <h1>Bruno, thinking of adding option for user to chose which info they want public/private. can you put lil eye icon by each question</h1>
+                    <h2>Britnie, I added a crossed out eye too in case you wanna play around with that or not.</h2>
                     Student Status:
                     <label>
                         <input type="radio" name="myRadio" value="option1" />
