@@ -70,59 +70,7 @@ body{
     border-radius: 5px 5px 5px 5px;
 }
 
-/*Search Bar*/
-.search-wrapper{
-    margin-top: 30px;
-    display:flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    width: 300px;
-    padding-top: 10px;
-    
-    
-    border-radius: 20px;
-    background-color:white ;
-    box-shadow: 5px 3px 5px rgb(185, 185, 185);
-    padding: 10px 20px;
-    
-}
 
-.search-wrapper input{
-    border: none;
-}
-
-.searchIcon{
-    font-size: 25px;
-    margin-top: 10px;
-    margin-right: -20px;
-}
-
-.input{
-    font-size: 4rem;
-    width: 100%;
-}
-
-.dataResult{
-    position: relative;
-    z-index: 1;
-    margin-top: 5px;
-    width: 300px;
-    height: 300px;
-    background-color: white;
-    overflow: hidden;
-    overflow-y: auto;
-    border: none;
-}
-.dataResult .dataItem{
-    width:350px;
-    height:50px;
-    display: flex;
-    align-items: center;
-    color: blue;
-}
-.dataItem :hover{
-    background-color: orange;
-}
 
 /*Card Stuff*/
 .class-cards{
@@ -721,4 +669,76 @@ body{
 }
 .eyeSlashIcon{
     font-size: 20px;
+}
+
+
+/*Search Page Stuff*/
+.SearchPage-full-screen-container{
+    background-color: #ffdfbb;
+    height: 100vh;
+    width:auto;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: top;
+}
+.search-bar-box{
+    margin-top: 10%;
+}
+/*Search Bar*/
+.search-wrapper{
+    margin-top: 30px;
+    display:flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 450px;
+    padding-top: 10px;
+    
+    
+    border-radius: 20px;
+    background-color:white ;
+    box-shadow: 5px 3px 5px rgb(185, 185, 185);
+    padding: 10px 20px;
+    
+}
+
+.search-wrapper input{
+    border: none;
+    width: 85%;
+}
+
+.searchIcon{
+    font-size: 25px;
+    margin-top: 10px;
+    margin-right: -20px;
+}
+
+.input{
+    font-size: 4rem;
+    width: 100%;
+}
+
+.dataResult{
+    position: relative;
+    z-index: 1;
+    margin-top: 5px;
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    overflow: auto;
+    overflow-y: auto;
+    border: none;
+}
+.dataResult .dataItem{
+    width:100%;
+    height:50px;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.dataResult :hover{
+    background-color: orange;
+    color: white;
 }

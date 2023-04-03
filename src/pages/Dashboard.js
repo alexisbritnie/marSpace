@@ -11,7 +11,7 @@ export default function Dashboard(){
     const navigateToNotes = () => {navigate('/notes')};
     const navigateToSavedMaterials = () => {navigate('/materials')};
     const navigateToSettings = () => {navigate('/settings')};
-    const navigateToSearch  = () => {navigate('/search')}
+    const navigateToSearchPage  = () => {navigate('/SearchPage')}
 
     return (
         <div class = "dash-full-screen-container">
@@ -124,7 +124,7 @@ export default function Dashboard(){
                 <button type = "submit" onClick={navigateToSavedMaterials}>Favorites</button>
                 </div>
                 <div class="dash-button">
-                <button type = "submit" onClick={navigateToSettings}>Search</button>
+                <button type = "submit" onClick={navigateToSearchPage}>Search</button>
                 </div>
                 <div class="dash-button">
                     <button type = "submit" onClick={navigateToSettings}>Logout</button>

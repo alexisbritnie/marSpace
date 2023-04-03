@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, or, and} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
@@ -41,6 +41,7 @@ const [results2, setResults2] = useState([]); /*docs */
     setResults(searchResults);
     setResults(results=>[...results,searchResults2])
 
+    
   };
   const handleClick = async (value) => {
 
@@ -54,6 +55,8 @@ const [results2, setResults2] = useState([]); /*docs */
     console.log(searchResults)
     // Update state with search results
     setResults2(searchResults);
+
+    
   };
 /*
   const results = useMemo(() => {
@@ -63,7 +66,6 @@ const [results2, setResults2] = useState([]); /*docs */
   }, [results, query])
 */
   return (
-
     <div className="parent">
 
     
@@ -73,7 +75,7 @@ const [results2, setResults2] = useState([]); /*docs */
         <button type="submit">Search</button>
       </form>
     </div>
-      {/* display classes in serach bar */}
+      {/* display classes in search bar */}
     { results.length != 0 &&(
     <div className="dataResult">
       {results.map((result) => ( /* goes through array */

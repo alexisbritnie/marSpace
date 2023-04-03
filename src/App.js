@@ -13,6 +13,8 @@ import Classroom from './pages/Classroom';
 import Materials from './pages/Materials';
 import Settings from './pages/Settings';
 import Notes from './pages/Notes';
+import SearchPage from './pages/SearchPage';
+
 
 
 
@@ -35,10 +37,10 @@ function App() {
         <Route path='/materials' element = {<Materials/>} />
         <Route path='/settings' element = {<Settings/>} />
         <Route path='/notes' element = {<Notes/>} />
-        
-      </Routes>
-    
+        <Route path='/SearchPage' element = {<SearchPage/>} />
 
+      </Routes>
+      
       <footer>
         <Footer />
       </footer>
