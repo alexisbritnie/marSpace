@@ -12,6 +12,7 @@ import Footer from './Footer.js';
 import Classroom from './pages/Classroom';
 import Materials from './pages/Materials';
 import Settings from './pages/Settings';
+import Notes from './pages/Notes';
 
 
 
@@ -33,8 +34,11 @@ function App() {
         <Route path='/classroom' element = {<Classroom/>} />
         <Route path='/materials' element = {<Materials/>} />
         <Route path='/settings' element = {<Settings/>} />
+        <Route path='/notes' element = {<Notes/>} />
+        
       </Routes>
-      
+    
+
       <footer>
         <Footer />
       </footer>

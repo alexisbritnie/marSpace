@@ -20,9 +20,6 @@ export default function Notes(){
     const app = initializeApp(firebaseConfig);
     const db=getFirestore(app);
     //Storaging
-    
-    
-    
     const[credit, setCredit]=useState({username:"",password:""});
     const handleChange=(event)=>{
       event.preventDefault();
@@ -128,7 +125,7 @@ async function show(event) {
     <input type="string" name="title" value={Post.password} onChange={handleChange3} placeholder="title"/>
     <input type="string" name="description" value={Post.password} onChange={handleChange3} placeholder="Description"/>
     <input type="string" name="class" value={Post.c} onChange={handleChange3} placeholder="class"/>
-    <input type="file" multiple name="AllFile" onChange={handleAllDoc}/>
+    <input type="file" multiple name="AllFile" onChange={handleAllDoc}/> {/*choose file */}
     <button type= "submit">Single Upload</button>
     </form>
 
@@ -140,6 +137,10 @@ async function show(event) {
 
             <div className="upload-box">
                 <FaFileUpload class='uploadFileIcon'/>
+                
+                <label class="clear-button">
+                <input type="file" multiple name="AllFile" onChange={handleAllDoc} className="choose-file" /> {/*choose file */}
+                </label>
                 <h1>choose a file or drag it here</h1>
             {/* this is duo tone upload icon <FontAwesomeIcon icon={faFileArrowUp} size="lg" style={{"--fa-primary-color": "#ff932e", "--fa-secondary-color": "#ff932e",}} /> */}
             </div>

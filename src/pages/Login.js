@@ -23,6 +23,8 @@ export default function Login(){
 
 //Fetching
 const[creditCheck, setCreditCheck]=useState({username:"",password:""});
+const[userChecking, setUserCheck] =useState("");
+const[passwordChecking, setPasswordCheck] =useState("");
 const handleChanges=(event)=>{
   event.preventDefault();
   const{name,value}=event.target;
@@ -45,11 +47,17 @@ async function addDocument (event) {
       passid=doc.id;
   });
 {/* if good, take to dashboard, if not error message to try logging in again*/}
-  if( userid === passid){
+setUserCheck(userid);
+setPasswordCheck(passid); 
+
+
+if( userid === passid){
     console.log("Good")
-   }else{
+   }
+   else{
     console.log("Bad")
-   }}
+   }
+  }
 
 
     return(
@@ -69,7 +77,14 @@ async function addDocument (event) {
                     <input 
                     type="password" name="password" id = "password" value={creditCheck.password} onChange={handleChanges} placeholder="Password">
                     </input>
-                    <span class="msg">Incorrect Password</span>
+                    {/*
+                    if( userChecking=== passwordChecking){
+                      console.log("Good")
+                    }
+                    else{
+                      console.log("Bad")
+                    }
+                  */}
                 </div>
 
                 <button 

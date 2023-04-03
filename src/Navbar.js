@@ -2,6 +2,7 @@ import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import React,{useState} from 'react';
+import Search from './Search';
 
 import { FaSearch } from "react-icons/fa"
 import { Link, useMatch, useResolvedPath} from "react-router-dom"
@@ -63,15 +64,12 @@ async function show(event) {
 */}
 
     return <nav className="nav">
+        
         <Link to="/" className="site-title">marSpace</Link>
 
 
         <ul>
-            <button type = "submit" FaSearch className='searchIcon'></button>
-            <FaSearch className='searchIcon'/>
-        <div class="search-wrapper">
-            <input type="search" id = "search" placeholder="Search Classes" onSubmit={show}/>
-        </div>
+            <Search/>
         
             <CustomLink to = "/login">Log in</CustomLink>
             <CustomLink to = "/signup">Sign up</CustomLink>
@@ -79,7 +77,7 @@ async function show(event) {
             {/*temp for viewing */}
             <CustomLink to = "/dashboard">Dashboard</CustomLink> 
             <CustomLink to = "/classroom">Classroom</CustomLink>
-            <CustomLink to = "/profile">Profile</CustomLink>
+            
         </ul>
     </nav>
 }

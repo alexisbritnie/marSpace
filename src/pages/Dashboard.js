@@ -4,12 +4,14 @@ import React from 'react';
 
 
 
+
 export default function Dashboard(){
     const navigate = useNavigate();
     const navigateToProfile = () => {navigate('/profile')};
     const navigateToNotes = () => {navigate('/notes')};
     const navigateToSavedMaterials = () => {navigate('/materials')};
     const navigateToSettings = () => {navigate('/settings')};
+    const navigateToSearch  = () => {navigate('/search')}
 
     return (
         <div class = "dash-full-screen-container">
@@ -119,10 +121,10 @@ export default function Dashboard(){
                 </div>
 
                 <div class="dash-button">
-                <button type = "submit" onClick={navigateToSavedMaterials}>Saved Materials</button>
+                <button type = "submit" onClick={navigateToSavedMaterials}>Favorites</button>
                 </div>
                 <div class="dash-button">
-                <button type = "submit" onClick={navigateToSettings}>Settings</button>
+                <button type = "submit" onClick={navigateToSettings}>Search</button>
                 </div>
                 <div class="dash-button">
                     <button type = "submit" onClick={navigateToSettings}>Logout</button>

@@ -30,9 +30,8 @@ export default function Profile(){
                     Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
 
-                <p>
-                    <h1>Bruno, thinking of adding option for user to chose which info they want public/private. can you put lil eye icon by each question</h1>
-                    <h2>Britnie, I added a crossed out eye too in case you wanna play around with that or not.</h2>
+                <div>
+                
                     Student Status:
                     <label>
                         <input type="radio" name="myRadio" value="option1" />
@@ -54,7 +53,7 @@ export default function Profile(){
                         <input type="radio" name="myRadio" value="option3" />
                         Graduate
                     </label>
-                </p>
+                </div>
 
             </div>
         </div>
