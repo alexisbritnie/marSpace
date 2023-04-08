@@ -42,6 +42,8 @@ const [results2, setResults2] = useState([]);
 
 
 
+
+
   const handleSubmit = async (event) => {
 
     event.preventDefault();
@@ -104,6 +106,7 @@ const [results2, setResults2] = useState([]);
 
   };
 
+
  
 
   return (
@@ -140,7 +143,14 @@ const [results2, setResults2] = useState([]);
 
           <h3>{result.rate}</h3>
 
-          <button>Comment</button>
+          <h4>Comment</h4>
+          {result.Comment.map((comment)=>(
+            <div key={comment.Comment}>
+              <h5>{comment.User}</h5>
+              <h6>{comment.Comment}</h6>
+              </div>
+          ))}
+
 
         </div>
 
