@@ -1,9 +1,9 @@
 import { useState} from "react";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import React from 'react';
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
-
+import {getAuth, signOut} from "firebase/auth"
 export default function Signup(){
 
     const firebaseConfig = {
@@ -19,6 +19,7 @@ export default function Signup(){
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app);
 const[credit, setCredit]=useState({username:"",password:""});
+
 const handleChange=(event)=>{
   event.preventDefault();
   const{name,value}=event.target;
@@ -26,12 +27,16 @@ const handleChange=(event)=>{
     return{...prev,[name]:value}
   })
 }
+
 const addDocu= (event) =>{
   event.preventDefault();
   addDoc(collection(db, "Credential"), {
     username: credit.username,
     password: credit.password
   })}
+  const navigate = useNavigate();
+  const navigateToLogin = () => {navigate('/login')};
+
 
     
     return(
@@ -39,21 +44,21 @@ const addDocu= (event) =>{
         <div class="login-container">
             <h1 class="login-title" style={{fontSize: 39}}>Create an account</h1>
             <p class="signup-blurb">Sign up now! It's absolutely free!</p>
-            <form class="form">
 
+            <form class="form" onSubmit={addDocu}>
                 <div class="input-group success">
                     {/* <label for="email"> Email</label> */}
-                    <input type="email" name=" email" id = "email" value={credit.username} onChange={handleChange} placeholder="Email"></input>
-                    <span class="msg">Valid Email</span>
+                    <input type="email" name="username" value={credit.username} onChange={handleChange} placeholder="Username"/>
+                    
                 </div>
 
                 <div class="input-group error">
                     {/*<label for="password"> Password</label>*/}
-                    <input type="password" name="password" id = "Password" value={credit.password} onChange={handleChange} placeholder="Password"></input>
-                    <span class="msg">Password doesn't meet requirements</span>
+                    <input type="password" name="password" value={credit.password} onChange={handleChange} placeholder="Password"/>
+                    
                 </div>
 
-                <button type = "submit" class="login-button">Sign up</button>
+                <button type = "submit" class="login-button" onClick = {navigateToLogin} >Sign up</button>
                 <div>
                     Already have an account? Click <Link to="/login">here</Link> to log in!
                 </div>

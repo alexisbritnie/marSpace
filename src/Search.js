@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, or, and} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
-
+import ClassDocs from "./ClassDocs";
+import { Link} from "react-router-dom";
 
 function Search() {
+  
+
     const firebaseConfig = {
     apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
     authDomain: "marspace-1afb7.firebaseapp.com",
@@ -16,6 +19,7 @@ function Search() {
   };
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app);
+
 
 const [query1, setQuery] = useState('');
 const [query2, setQuery2] = useState('');
@@ -31,17 +35,17 @@ const [results2, setResults2] = useState([]); /*docs */
     // Convert QuerySnapshot to array of plain JavaScript objects
     //querySnapshot.forEach((doc) => { setResults([...results,doc.data()]);});
     const searchResults = querySnapshot.docs.map((doc) => doc.data());
+
     const querySnapshot2 =  await getDocs(q3);
     // Convert QuerySnapshot to array of plain JavaScript objects
     //querySnapshot.forEach((doc) => { setResults([...results,doc.data()]);});
     const searchResults2 = querySnapshot2.docs.map((doc) => doc.data());
     console.log(searchResults)
-    console.log(searchResults)
+   
     // Update state with search results
     setResults(searchResults);
     setResults(results=>[...results,searchResults2])
 
-    
   };
   const handleClick = async (value) => {
 
@@ -55,8 +59,6 @@ const [results2, setResults2] = useState([]); /*docs */
     console.log(searchResults)
     // Update state with search results
     setResults2(searchResults);
-
-    
   };
 /*
   const results = useMemo(() => {
@@ -65,38 +67,54 @@ const [results2, setResults2] = useState([]); /*docs */
     })
   }, [results, query])
 */
+
+
   return (
+
     <div className="parent">
 
     
-    <div className="search-wrapper">
-      <form onSubmit={handleSubmit}>
-        <input type="search" value={query1} onChange={(event) => setQuery(event.target.value)} />
-        <button type="submit">Search</button>
-      </form>
-    </div>
-      {/* display classes in search bar */}
-    { results.length != 0 &&(
-    <div className="dataResult">
-      {results.map((result) => ( /* goes through array */
-        <div key={result.className}>
-          <button className="dataItem" onClick={()=>handleClick(result.className)}>
-            {result.title}
-          </button> {/* when class is pressed, re route to specific class dashboard*/}
+      <div className="search-wrapper">
+        <form onSubmit={handleSubmit}>
+          <input type="search" value={query1} onChange={(event) => setQuery(event.target.value)} />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+        {/* display classes in serach bar */}
+      { results.length != 0 &&(
+        <div className="dataResult">
+          {results.map((result) => ( /* goes through array */
+            <div key={result.className}>
+              
+              <button className="dataItem" onClick={()=>handleClick(result.className)}>
+                {result.title}
+              </button> {/* when class is pressed, re route to specific class dashboard*/}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-)}
-      {/* displays ALL the files from the clicked upon class */}
-      {results2.map((result) => (
-        <div key={result.link}>
-          <h2>{result.title}</h2>
-          <h3>{result.description}</h3>
-          <embed src={result.link} width="100%" height="600px" />
-          <h3>{result.rate}</h3>
-        </div>
-      ))}
-    
+      )}
+
+        {/* displays ALL the files from the clicked upon class , have this passed onto classroom.js page*/}
+      
+        {results2.map((result) => (
+          <div key={result.link}>
+            <h2>{result.title}</h2>
+            <h3>{result.description}</h3>
+            <embed src={result.link} width="100%" height="300px" />
+            <h3>{result.rate}</h3>
+          
+          <h4>Comment</h4>
+          {result.Comment.map((comment)=> (
+            <div key={comment.Comment}>
+              <h5>{comment.User}</h5>
+              <h6>{comment.Comment}</h6>
+            </div>
+          ))}
+
+
+          </div>
+        ))}
 
     </div>
   );

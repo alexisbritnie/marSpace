@@ -131,17 +131,17 @@ async function show(event) {
 
     <h1 >Searching</h1>
     <form onSubmit={show}>
-    <input type="string" name="classlook" value={Post.password} onChange={handleChange4} placeholder="Description"/>
-    <button type= "submit">Find</button>
+      <input type="string" name="classlook" value={Post.password} onChange={handleChange4} placeholder="Description"/>
+     <button type= "submit">Find</button>
     </form>
 
             <div className="upload-box">
                 <FaFileUpload class='uploadFileIcon'/>
                 
                 <label class="clear-button">
-                <input type="file" multiple name="AllFile" onChange={handleAllDoc} className="choose-file" /> {/*choose file */}
+                  <input type="file"  onChange={handleAllDoc} className="choose-file" /> {/*choose file */}
                 </label>
-                <h1>choose a file or drag it here</h1>
+                <h1>choose a file</h1>
             {/* this is duo tone upload icon <FontAwesomeIcon icon={faFileArrowUp} size="lg" style={{"--fa-primary-color": "#ff932e", "--fa-secondary-color": "#ff932e",}} /> */}
             </div>
 
