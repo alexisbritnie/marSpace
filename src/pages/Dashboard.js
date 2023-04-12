@@ -16,7 +16,6 @@ export default function Dashboard(){
     const navigateToProfile = () => {navigate('/profile')};
     const navigateToNotes = () => {navigate('/notes')};
     const navigateToSavedMaterials = () => {navigate('/materials')};
-    const navigateToSearch  = () => {navigate('/search')}
     const navigateToLogout  = () => {navigate('/logout')}
     const navigateToSearchPage  = () => {navigate('/SearchPage')}
     const auth = getAuth();
@@ -36,8 +35,14 @@ export default function Dashboard(){
 
     console.log(sessionStorage.getItem("userid"))
     console.log(sessionStorage.getItem("username")) 
-    console.log(sessionStorage.getItem('token'))
+    /*console.log(sessionStorage.getItem('token')) */  
     const [saveCl, setsaveCl]=useState([])
+
+
+    useEffect(() =>{
+        rando()
+    },[])
+
     const rando = async(event) =>{
         const docSnap = await getDoc(docRef)
         if (docSnap.exists()){
@@ -48,25 +53,33 @@ export default function Dashboard(){
             console.log('nada')
         }
     }
-    rando()
+
+    const navigateToClassroom = () => {navigate('/classroom')}
+
+
+    const goToClass = (className) =>{
+        console.log( className)
+        sessionStorage.setItem('className', className)
+       navigateToClassroom()
+
+    }
   
     return (
-        
         <div class = "dash-full-screen-container">
         <div class="dashboard-container">
         <div class="card-grid">
-            {/* props for classCard*/}
+
             {saveCl.map((result)=> (
-                <div class= "dash-class-cards">
+                <div class= "dash-class-cards" key = {result.className}>
                     <div class="dash-class-card-header card-image">
                         <img src={result.pic} />{result.className}
                     </div>
                     <div class="dash-class-card-body">{result.title}</div>
-                    <button className="class-page-button">go to class!</button>
+                    
+                    <button className="class-page-button" onClick={()=> goToClass(result.title, result.className)}>go to class!</button>
                 </div>
              ))}
                
-                
             </div>
             <div class="side-bar-form" >
                 <h1 class="dashboard-title">Dashboard</h1>

@@ -10,10 +10,6 @@ import {onSnapshot} from 'firebase/firestore'
 import Login from "./Login";
 
 
-
-
-
-
 export default function Classroom(){
 
     const firebaseConfig = {
@@ -130,10 +126,8 @@ const handleChange4=(event)=>{
   })
 */
 
-  
+const [savePost, setSavePost] = useState([])
     return (
-
-
 
         <div class = "classroom-full-screen-container">
             
@@ -146,7 +140,7 @@ const handleChange4=(event)=>{
             </form>
 
             <div class = "class-title-bar">
-                <h1 class="class-title">CSIS 2101</h1>
+                <h1 class="class-title">{sessionStorage.getItem('className')}</h1>
                 <FaPlusCircle class='addClass'/> {/*add class to dashboard */}
                 <label class="clear-button">
                   <button> {/*onClick={addDashboard}*/}</button>
@@ -177,20 +171,70 @@ const handleChange4=(event)=>{
 
             
             <div class = "classroom-container">
-                <p class="note-name">Kumar's Chapter 7 Notes</p>
-                <p class="note-description">I think is it important for everyone to know the 
-                difference between array and list from Python. I hope you guys like my notes.</p>
+                <p class="note-name">Notes</p>
+                <p class="note-description">The notes for this class</p>
                 <div class = "class-notes-container">
+                
+
+
+                  {console.log('come here')}
+                  {savePost.map((result) => (
+                    <>
+                    <h2>{result.title}</h2>
+                    <h3>{result.description}</h3>
+                    <embed src={result.link} width="100%" height="300px" />
+                    <h3>{result.rate}</h3>
+                    </>
+                  ))}
                 </div>
+
                 <FaArrowCircleUp class='arrowUp'/>
                 <FaArrowCircleDown class='arrowDown'/>
                 <p class="comment-button">Comment</p>
-                <p class="download-button">Download</p>
             </div>
 
-            <div className="discussion-container">
-                
-                
+            <div class="discussion-box-container">
+                <div class="discussion-box">
+                    <div class="comment-box">
+                        <div class="comment-author">
+                            <h3 class="comment-author-font">Ajoy Kumar 1</h3>
+                        </div>
+                        <p class="comments-font"> Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment.</p>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-author">
+                            <h3 class="comment-author-font">Ajoy Kumar 2</h3>
+                        </div>
+                        <p class="comments-font"> Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment.</p>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-author">
+                            <h3 class="comment-author-font">Ajoy Kumar 3</h3>
+                        </div>
+                        <p class="comments-font"> Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment.</p>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-author">
+                            <h3 class="comment-author-font">Ajoy Kumar 4</h3>
+                        </div>
+                        <p class="comments-font"> Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment.</p>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-author">
+                            <h3 class="comment-author-font">Ajoy Kumar 5</h3>
+                        </div>
+                        <p class="comments-font"> Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment. Hello, I'm a comment.</p>
+                    </div> 
+                </div>
+                <div class="division-line"></div>
+                <div class="typing-comment-box">
+                    <input class="comment-input" type="text"></input>
+                    <button 
+                    class="send-button" 
+                    type="submit">SEND
+
+                    </button>
+                </div>
             </div>
         </div>
     )

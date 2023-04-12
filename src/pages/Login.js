@@ -82,7 +82,7 @@ if( userid === passid){
                     {/* <label for="email"> Email</label> */}
                     <input type="email" name="username" id = "username" value={creditCheck.username} onChange={handleChanges} placeholder="Email">
                     </input>
-                    <span class="msg">Valid Email</span>
+                    {/*<span class="msg">Valid Email</span> */}
                     
                 </div>
 

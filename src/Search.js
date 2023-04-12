@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, or, and} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import ClassDocs from "./ClassDocs";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 function Search() {
   
@@ -19,7 +19,7 @@ function Search() {
   };
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app);
-
+const navigate = useNavigate();
 
 const [query1, setQuery] = useState('');
 const [query2, setQuery2] = useState('');
@@ -60,13 +60,16 @@ const [results2, setResults2] = useState([]); /*docs */
     // Update state with search results
     setResults2(searchResults);
   };
-/*
-  const results = useMemo(() => {
-    return results.filter(item => {
-        return (result.className).toLowerCase().includes(query1.toLowerCase())
-    })
-  }, [results, query])
-*/
+
+  const navigateToClassroom = () => {navigate('/classroom')}
+
+
+    const goToClass = (className) =>{
+        console.log( className)
+        sessionStorage.setItem('className', className)
+       navigateToClassroom()
+
+    }
 
 
   return (
@@ -87,7 +90,7 @@ const [results2, setResults2] = useState([]); /*docs */
           {results.map((result) => ( /* goes through array */
             <div key={result.className}>
               
-              <button className="dataItem" onClick={()=>handleClick(result.className)}>
+              <button className="dataItem" onClick={()=>goToClass(result.title, result.className, result.description, result.rate, result.comment)}>
                 {result.title}
               </button> {/* when class is pressed, re route to specific class dashboard*/}
             </div>
@@ -96,7 +99,7 @@ const [results2, setResults2] = useState([]); /*docs */
       )}
 
         {/* displays ALL the files from the clicked upon class , have this passed onto classroom.js page*/}
-      
+    
         {results2.map((result) => (
           <div key={result.link}>
             <h2>{result.title}</h2>
