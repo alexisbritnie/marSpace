@@ -11,12 +11,12 @@ export default function Profile(){
         <div class = "profile-full-screen-container">
             <div className="user-card">
                 <div className="profile-pic-square"></div>
-                <h1 className="user-name">User Name</h1>
-                <h1 className="user-type">user type</h1>
-                <h1 className="rating">rating</h1>
+                <p className="user-name">Ajoy Kumar</p>
+                <p className="user-type">Teacher</p>
             </div>
             <div className="profile-folder">
                 <h1 className="about-title">About</h1>
+                <div className="personal-info-box">
                 <label>
                     Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
@@ -26,9 +26,7 @@ export default function Profile(){
                 <label>
                     Minor(s): <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
                 </label>
-                <label>
-                    Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
-                </label>
+                </div>
 
                 <div>
                 

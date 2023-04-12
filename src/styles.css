@@ -31,7 +31,6 @@ body{
     display: flex;
     align-items: center;
     padding: .25rem;
-    background-color: transparent;
 }
 
 .site-title{
@@ -39,21 +38,17 @@ body{
 }
 
 .nav ul{
-    height: 50px;
-    width: auto;
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     gap: 2rem;
     font-size: 1.25rem;
-    padding: 0px 10px 0px 10px;
-    transition:background-color 0.3s;
 }
 
 .nav li.active{
     width: auto;
-    
+    height: 36px;
     padding: 0px 10px 0px 10px;
     background: white;
     color: #ffa834;
@@ -61,13 +56,11 @@ body{
     border-width: 2px;
     border-style: solid;
     border-radius: 5px 5px 5px 5px;
-    transition:background-color 0.3s;
-    
 }
 
 .nav li:hover{
     width: auto;
-    
+    height: 36px;
     padding: 0px 10px 0px 10px;
     background: #ffa834;
     color: white;
@@ -76,6 +69,8 @@ body{
     border-style: solid;
     border-radius: 5px 5px 5px 5px;
 }
+
+
 
 /*Card Stuff*/
 .class-cards{
@@ -235,7 +230,7 @@ body{
 }
 .dashboard-container{
     box-sizing: border-box;
-    background-color:rgb(230, 249, 255);
+    background-color:rgba(197, 242, 255, 0.856);
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
     height: 90vh;
     
@@ -322,16 +317,18 @@ body{
 .card-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,250px));
-    gap:.75rem;
+    gap:1rem;
     align-items: flex-start;
     position: absolute;
-    top:50px;
+    top:40px;
     bottom: 10px;
-    left: 23%;
+    left: 20.5%;
     right: 10px;
     height: 90%;
     overflow:auto;
-    width: 75%;
+    width: 78%;
+    padding: 10px 10px 15px 10px;
+    margin-left: 10px;
 }
 .saved-materials-container{
     box-sizing: border-box;
@@ -367,7 +364,7 @@ body{
     background: rgb(255, 255, 255);
     padding:1rem;
     border:none;
-    box-shadow: 7px 7px 7px rgb(191, 206, 211);
+    box-shadow: 7px 7px 7px rgba(153, 195, 207, 0.856);
     border-radius: .25rem;
     
     height: 300px;
@@ -393,7 +390,6 @@ body{
     object-position: start;
     transition: 200ms transform ease-in-out;
 }
-
 /*  zoom in affect when hover over cards */
 .dash-class-cards:hover > .dash-class-card-header.card-image >img{
     transform: scale(1.5);
@@ -412,6 +408,9 @@ body{
     gap: 2rem;
     
 }
+
+
+
 
 /* Classroom page */
 .classroom-full-screen-container{
@@ -474,16 +473,12 @@ body{
     margin: 0;
     margin-left: -70px;
     color: black;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgb(0, 0, 0);
     text-align: left;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 30px;
     border: none;
-    display: inline-block;
-}
-input[type="file"]{
-    display: none;
 }
 .choose-file{
     background-color: black;
@@ -524,7 +519,7 @@ input[type="file"]{
 .class-notes-container{
     background-color:rgba(197, 242, 255, 0.856);
     height: 375px;
-    padding: 20px;
+    padding: 15px;
     width: 100%;
     max-width:inherit;
     border-radius: 6px;
@@ -551,30 +546,85 @@ input[type="file"]{
     margin-top: -30px;
     font-weight: bold;
 }
-.download-button{
-    margin: 0;
-    margin-left: 450px;
-    color: black;
-    text-align: left;
-    font-size: 1.25rem;
-    margin-top: -24px;
-    font-weight: bold;
-}
-/*discussion section */
-.discussion-container{
+/*Comment Section Stuff*/
+.discussion-box-container{
+    display: grid;
     box-sizing: border-box;
-    background-color:white;
+    background-color:rgba(245, 245, 245, 0.616);
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: auto;
-    min-height: 500px;
+    height: 600px;
     padding: 20px;
     width:80%;
     max-width:inherit;
     border-radius: 6px;
     margin-top:30px;
-    justify-content:start;
+    justify-content:center;
     display: -ms-grid;
 }
+.discussion-box{
+    display: grid;
+    height: 400px;
+    width: 1100px;
+    padding: 5px 20px 5px 20px;
+    justify-content: center;
+    align-items: end;
+    overflow: auto;
+    margin-top: 15px;
+}
+.comment-box{
+    height: auto;
+    width: 95%;
+    padding: 10px;
+    padding-top: 0px;
+}
+.comment-author{
+    margin-bottom: -10px;
+}
+.comment-author-font{
+    font-size: 18px;
+    font-weight:600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.comments-font{
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.division-line{
+    background-color:#999999;
+    width:100%;
+    height: 1px;
+}
+.typing-comment-box{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    justify-content: center;
+    margin-top: -10px;
+}
+.comment-input{
+    font-size: 15px;
+    width: 85%;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+.send-button{
+    padding:  .5rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: white;
+    background-color: rgb(144, 225, 252);
+    border:none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    width: 10%;
+    margin-left: 10px;
+}
+.send-button:hover{
+    background-color: #ffa834;
+}
+
+
 
 /* My Notes Page */
 .notes-full-screen-container{
@@ -586,10 +636,11 @@ input[type="file"]{
     background-size: cover;
     background-position: center;
     align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .upload-box{
-    background-color: rgb(145, 228, 251);
-    height: 100px;
+    background-color:rgba(197, 242, 255, 0.856);    height:15%;
     width: 90%;
     display: flex;
     justify-content: center;
@@ -598,9 +649,9 @@ input[type="file"]{
     border-style: solid;
     border: white;
     border-width: thick;
-    border-radius: 20px;
-}
+    border-radius: 6px;
 
+}
 .upload-box h1{
     text-align:center;
     font-size: small;
@@ -614,7 +665,7 @@ input[type="file"]{
     justify-content:flex-start;
     align-items: left;
     margin:0px;
-    border-radius: 20px;
+    border-radius: 6px;
     padding:10px;
 }
 .header{
@@ -623,69 +674,118 @@ input[type="file"]{
 .body{
     font-size: x-small;
 }
-.doc-carousel{
-    background-color: rgb(145, 228, 251);
+.doc-display{
+    background-color:rgba(197, 242, 255, 0.856);
     height:90%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    justify-content: left;
+    align-items: start;
+    padding: 30px;
     border-style: solid;
     border: white;
     border-width: thick;
-    border-radius: 20px;
+    border-radius: 6px;
 }
+.doc-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,250px));
+    gap:1rem;
+    align-items: flex-start;
+    top:50px;
+    bottom: 10px;
+    left: 23%;
+    right: 10px;
+    height: 100%;
+    overflow:auto;
+    width: 100%;
+    padding: 10px 10px 15px 10px;
+}
+
+
+
 
 /*profile page */
 .profile-full-screen-container{
     background-color: #ffdfbb;
-    height: 100vh;
+    height: 80vh;
     width:auto;
     display: flex;
     flex-direction: row;
     background-size: cover;
     background-position: center;
-    align-items: left;
+    align-items: start;
+    justify-content: center;
+    padding-top:30px;
 }
 .profile-pic-square{
     background: 
       url(./pages/images/classroom.png);
     width: 200px;
-    height: 250px;
-    background-size: cover;
+    height: 450px;
+    background-size:cover;
     display: flex;
     margin: 30px;
-   padding: 10px;
-  }
+    border-radius: 6px;
+}
   
 .user-card{
     background-color: rgb(255, 255, 255);
     width: 20%;
-    min-width: 250px;
-    height: 400px;
+    width: 250px;
+    height: 350px;
     margin: 20px;
+    margin-left: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
-
+    border-radius: 6px;
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
 }
 .profile-folder{
-    background-color: rgb(134, 228, 235);
-    width: 60%;
-    height: 90%;
+    background-color: rgba(197, 242, 255, 0.856);
+    width: 40%;
+    height: 450px;
     margin: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    border-radius: 6px;
+    box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
 }
 .eyeIcon{
     font-size: 20px;
+    margin-left: 10px;
 }
 .eyeSlashIcon{
     font-size: 20px;
 }
+.user-name{
+    margin-top: -20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.user-type{
+    margin-top: -20px;
+}
+.rating-font{
+    margin-top: 0px;
+}
+.about-title{
+    margin-top: -40px;
+}
+.personal-info-box{
+    display: grid;
+    margin-top: -10px;
+    height: 170px;
+    padding-bottom: 20px;
+    width: 240px;
+    justify-content:center;
+}
+
+
+
 /*Search Page Stuff*/
 .SearchPage-full-screen-container{
     background-color: #ffdfbb;
@@ -700,37 +800,33 @@ input[type="file"]{
 .search-bar-box{
     margin-top: 10%;
 }
-
 /*Search Bar*/
 .search-wrapper{
     margin-top: 30px;
     display:flex;
     flex-direction: column;
     gap: 2.5rem;
-    width: 450px;
+    width: 455px;
     padding-top: 10px;
     border-radius: 20px;
     background-color:white ;
     box-shadow: 5px 3px 5px rgb(185, 185, 185);
     padding: 10px 20px;
 }
-
 .search-wrapper input{
     border: none;
     width: 85%;
 }
-
 .searchIcon{
     font-size: 25px;
     margin-top: 10px;
     margin-right: -20px;
+    
 }
-
 .input{
     font-size: 4rem;
     width: 100%;
 }
-
 .dataResult{
     position: relative;
     z-index: 1;
@@ -738,7 +834,7 @@ input[type="file"]{
     width: 100%;
     height: 300px;
     background-color: white;
-    overflow: auto;
+    overflow: hidden;
     overflow-y: auto;
     border: none;
 }
@@ -749,8 +845,13 @@ input[type="file"]{
     align-items: center;
     color: black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    background-color: white;
 }
-.dataItem :hover{
+.dataResult :hover{
     background-color: orange;
     color: white;
+}
+input:focus{
+    outline:none;
 }

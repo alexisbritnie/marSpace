@@ -1,13 +1,7 @@
-import { useState, useEffect} from "react";
+import { useState} from "react";
 import { Link, useNavigate} from "react-router-dom";
 import React from 'react';
-import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc} from 'firebase/firestore/lite';
-import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
-import Search from "../Search";
-import ClassCard from "../ClassCard";
-import {getAuth, signOut} from "firebase/auth"
-import { QuerySnapshot } from "firebase/firestore";
+
 
 
 
@@ -16,56 +10,97 @@ export default function Dashboard(){
     const navigateToProfile = () => {navigate('/profile')};
     const navigateToNotes = () => {navigate('/notes')};
     const navigateToSavedMaterials = () => {navigate('/materials')};
-    const navigateToSearch  = () => {navigate('/search')}
-    const navigateToLogout  = () => {navigate('/logout')}
+    const navigateToSettings = () => {navigate('/settings')};
     const navigateToSearchPage  = () => {navigate('/SearchPage')}
-    const auth = getAuth();
-    const firebaseConfig = {
-        apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
-        authDomain: "marspace-1afb7.firebaseapp.com",
-        projectId: "marspace-1afb7",
-        storageBucket: "marspace-1afb7.appspot.com",
-        messagingSenderId: "936429184235",
-        appId: "1:936429184235:web:f1ddee1d9a9e2f17b44aae",
-        measurementId: "G-5SSF4M5BTB"
-    };
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db=getFirestore(app);
-    const docRef = doc(db, "Credential", sessionStorage.getItem('userid'))
 
-    console.log(sessionStorage.getItem("userid"))
-    console.log(sessionStorage.getItem("username")) 
-    console.log(sessionStorage.getItem('token'))
-    const [saveCl, setsaveCl]=useState([])
-    const rando = async(event) =>{
-        const docSnap = await getDoc(docRef)
-        if (docSnap.exists()){
-            console.log('Doc data', docSnap.data())
-            const info= docSnap.data()
-            setsaveCl(info.SavedClass)
-        }else{
-            console.log('nada')
-        }
-    }
-    rando()
-  
     return (
-        
         <div class = "dash-full-screen-container">
         <div class="dashboard-container">
         <div class="card-grid">
-            {/* props for classCard*/}
-            {saveCl.map((result)=> (
                 <div class= "dash-class-cards">
                     <div class="dash-class-card-header card-image">
-                        <img src={result.pic} />{result.className}
-                    </div>
-                    <div class="dash-class-card-body">{result.title}</div>
-                    <button className="class-page-button">go to class!</button>
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
                 </div>
-             ))}
-               
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/95YRwf6CNw8" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/95YRwf6CNw8" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
+                <div class= "dash-class-cards">
+                    <div class="dash-class-card-header card-image">
+                    <img src="https://source.unsplash.com/D9Zow2REm8U" />
+                    CSIS 2101</div>
+                    <div class="dash-class-card-body"> Fundementals of Computer Programming</div>
+                </div>
                 
             </div>
             <div class="side-bar-form" >
@@ -73,28 +108,26 @@ export default function Dashboard(){
                 
                 <div class= "dash-profile-card">
                     <form>
-                    <h1 class="dash-name">{sessionStorage.getItem("username")}</h1>
+                    <h1 class="dash-name">Britnie Alexis</h1>
                     </form>
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" onClick={navigateToProfile}>My Profile</button>
+                <button type = "submit" onClick={navigateToProfile}>My Profile</button>
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" onClick={navigateToNotes}>My Notes</button>
+                <button type = "submit" onClick={navigateToNotes}>My Notes</button>
                 </div>
 
                 <div class="dash-button">
-                    <button type = "submit" onClick={navigateToSavedMaterials}>Favorites</button>
+                <button type = "submit" onClick={navigateToSavedMaterials}>Favorites</button>
                 </div>
-
                 <div class="dash-button">
-                    <button type = "submit" onClick={navigateToSearchPage}>Search</button>
+                <button type = "submit" onClick={navigateToSearchPage}>Search</button>
                 </div>
-
                 <div class="dash-button">
-                    <button type = "submit" onClick={navigateToLogout}>Logout</button>
+                    <button type = "submit" onClick={navigateToSettings}>Logout</button>
                 </div>
                 
             </div>
