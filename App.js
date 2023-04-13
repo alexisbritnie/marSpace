@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, updateDoc} from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, updateDoc, getDoc, arrayRemove} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import Search from './Search';
+
 function App() {
   const firebaseConfig = {
     apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
@@ -68,6 +69,7 @@ const querySnapshot =  await getDocs(q2);
   console.log("Good")
   settoken(searchResults[0])
   setuserDoc(userid)
+  sessionStorage.setItem('id',userid)
  }else{
   console.log("Bad")
  }
@@ -192,7 +194,46 @@ const  changeProfileUserMajor= async (event)=>{
     major:profile.major
   })
 }
+//SavedClass
+const  changeProfileUserClass= async (event)=>{
+  event.preventDefault();
+  //oldarr.push({user: 'test4'})
+  const profileref= doc(db,"Credential",userDoc)
+  const snap = await getDoc( profileref)
+  console.log(snap)
+  console.dir(snap)
+  const oldarr= snap.data().SavedClass
+  oldarr.push({helloL:"test1"})
+  await updateDoc(profileref,{
+    SavedClass: oldarr
+  })
 
+}
+//Remove saved Class
+const removeSavedclass= async (int)=>{
+  const profileref= doc(db,"Credential",userDoc)
+  await updateDoc(profileref,{
+    SavedClass:arrayRemove(int)
+  })}
+//Showing saved post
+const [card2, setcard2]=useState([])
+const ShowPost= async (value)=>{
+  if (token===[]){
+    setcard2([])
+  }
+  else{
+    console.log(token.SavedPost)
+    setcard2(token.SavedPost)
+  }
+
+
+}
+//Remove saved post
+const removeSavedPost= async (int)=>{
+  const profileref= doc(db,"Credential",userDoc)
+  await updateDoc(profileref,{
+    SavedPost:arrayRemove(int)
+  })}
 
 return (
   <div>
@@ -222,16 +263,30 @@ return (
       <input type="text" name="major" value={profile.major} onChange={updateprofile} placeholder="New Major"/>
       <button type="submit">Change UserMajor</button>
     </form>
+    <button onClick={changeProfileUserClass}>Click Me</button>
 
     <h1>Fetching Notecard</h1>
     <button onClick={makeCard}>Make card</button>
-    {card1.map((result) => (
-        <div key={result.className}>
+    {card1.map((result,index) => (
+        <div key={index}>
           <h2>{result.className}</h2>
           <h3>{result.title}</h3>
-          
+          <button onClick={()=>{removeSavedclass(result)}}>remove this class</button>
         </div>
       ))}
+
+  <h1>Fetching Saved Post</h1>
+    <button onClick={ShowPost}>show saved post</button>
+    {card2.map((result) => (
+        <div key={result.link}>
+          <h2>{result.title}</h2>
+          <h3>{result.description}</h3>
+          <embed src={result.link} width="100%" height="600px" />
+          <button onClick={()=>{removeSavedPost(result)}}>remove this class</button>
+          <h3>{result.rate}</h3>
+        </div>
+      ))}
+      
 
     
 
