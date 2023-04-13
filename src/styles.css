@@ -296,8 +296,7 @@ body{
 .dash-button button:hover {
     background-color: rgb(25, 146, 187);
     color: white;
-  }
-
+}
 .dash-profile-card{
     background-color: #e6f9ff;
     box-shadow: 7px 7px 7px rgba(59, 141, 167, 0.637);
@@ -365,11 +364,9 @@ body{
     padding:1rem;
     border:none;
     box-shadow: 7px 7px 7px rgba(153, 195, 207, 0.856);
-    border-radius: .25rem;
-    
+    border-radius: .25rem;   
     height: 300px;
-    width: 250px;
-    
+    width: 250px;   
 }
 .dash-class-card-header{
     font-size: 1.7rem;
@@ -390,6 +387,22 @@ body{
     object-position: start;
     transition: 200ms transform ease-in-out;
 }
+.class-page-button{
+    margin-top: 10px;
+    background-color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 10px 5px 10px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #ffa834;
+    border-width: 3px;
+}
+.class-page-button:hover{
+    background-color: #ffa834;
+    color: white;
+}
 /*  zoom in affect when hover over cards */
 .dash-class-cards:hover > .dash-class-card-header.card-image >img{
     transform: scale(1.5);
@@ -405,8 +418,7 @@ body{
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 2rem;
-    
+    gap: 2rem;   
 }
 
 
@@ -425,16 +437,15 @@ body{
 .class-title-bar{
     background-color:white ;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    padding: 10px 10px;
-    width: 350px;
-    height: auto;
+    padding: 20px 30px;
+    width: auto;
+    height: 50%;
     border-radius: 20px;
     margin-top:30px;
 }
 .class-title{
     margin:0;
     color: #444444;
-    text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -458,14 +469,29 @@ body{
     box-sizing: border-box;
     background-color:white;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: 400px;
+    height: 320px;
     padding: 20px;
-    width:80%;
+    width:40%;
     max-width:inherit;
     border-radius: 6px;
     margin-top:30px;
     justify-content:start;
     display: -ms-grid;
+}
+.note-name-box{
+    margin:0;
+    color: black;
+    text-align: left;
+    font-size: 1.15rem;
+    font-weight: bold;
+    width: 50%;
+}
+.note-description-box{
+    margin-top:5px;
+    color: black;
+    text-align: left;
+    font-size: 1rem;
+    width: 50%;
 }
 .clear-button{
     height: 40px;
@@ -489,15 +515,14 @@ input[type="file"]{
     color: blue;
     /*display: none;   hide choose button*/
 }
-
 .upload-doc-container{
     background-color:rgba(197, 242, 255, 0.856);
-    height: 250px;
+    height: 150px;
     padding: 20px;
     width: 100%;
     max-width:inherit;
     border-radius: 6px;
-    margin-top: 55px;
+    margin-top: 15px;
     justify-content:center;
     align-items: center;
     display: flex;
@@ -507,12 +532,28 @@ input[type="file"]{
     /*color:#ff9019; orange*/
     color:#444444; /*black*/
 }
-/*Kumar's Notes Stuff (2nd box)*/
+.submit-note-button{
+    font-size: 20px;
+    margin-top: 10px;
+    padding:  .80rem;
+    font-weight: normal;
+    color: white;
+    background-color: rgb(144, 225, 252);
+    border:none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    width: auto;
+}
+.submit-note-button:hover{
+    background-color: #ffa834;
+}
+/*Class Notes Stuff (2nd box)*/
 .classroom-container{
     box-sizing: border-box;
     background-color:white;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: 580px;
+    height: 1580px;
     padding: 20px;
     width:80%;
     max-width:inherit;
@@ -523,7 +564,7 @@ input[type="file"]{
 }
 .class-notes-container{
     background-color:rgba(197, 242, 255, 0.856);
-    height: 375px;
+    height: 89%;
     padding: 15px;
     width: 100%;
     max-width:inherit;
@@ -611,6 +652,7 @@ input[type="file"]{
     width: 85%;
     padding-left: 20px;
     border-radius: 20px;
+    border-style: solid;
 }
 .send-button{
     padding:  .5rem;

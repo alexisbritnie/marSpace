@@ -152,12 +152,12 @@ const [savePost, setSavePost] = useState([])
 
             <div class = "upload-notes-container">
                 <form onSubmit={SingleUpload}>
-                    <input type="string" name="title" value={Post.password} onChange={handleChange3} placeholder="Enter your note's title:"/>
+                    <input class="note-name-box" type="string" name="title" value={Post.password} onChange={handleChange3} placeholder="Enter your note's title:"/>
                     <div></div>
-                    <input type="string" name="description" value={Post.password} onChange={handleChange3} placeholder="Enter a short description"/>
+                    <input class="note-description-box" type="string" name="description" value={Post.password} onChange={handleChange3} placeholder="Enter a short description"/>
                     
 
-                    <div className="upload-box">
+                    <div className="upload-doc-container">
                 <FaFileUpload class='uploadFileIcon'/>
                 
                 <label class="clear-button">
@@ -165,7 +165,7 @@ const [savePost, setSavePost] = useState([])
                 </label>
                 {/* this is duo tone upload icon <FontAwesomeIcon icon={faFileArrowUp} size="lg" style={{"--fa-primary-color": "#ff932e", "--fa-secondary-color": "#ff932e",}} /> */}
                 </div>
-                <button type= "submit">Submit</button>
+                <button class="submit-note-button" type= "submit">Submit</button>
                 </form>
             </div>
 
