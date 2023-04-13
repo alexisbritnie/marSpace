@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import {initializeApp} from 'firebase/app';
 
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, or, and} from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, or, and, deleteField} from 'firebase/firestore/lite';
 
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import {updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
@@ -100,7 +100,7 @@ const [results2, setResults2] = useState([]);
     // Update state with search results
 
     setResults2(searchResults);}
-    const [comment, setComment]= useState({user:"",comment:""})
+    const [comment, setComment]= useState({Comment:"",User:""})
 
     const handleChangeComment=(event)=>{
       event.preventDefault();
@@ -109,18 +109,22 @@ const [results2, setResults2] = useState([]);
         return{...prev,[name]:value}
       })
     }
-const addComment= async(event)=>{
-  
-  console.log("In")
-  console.log(event)
-  //var postId;
- //const LookingForPostComment= query(collection(db, "Post"), where("link", "==", event));
-  //const querySnapshot1 =  await getDocs(LookingForPostComment);
-  //querySnapshot1.forEach((doc)=>{postId=doc.id})
-  //const postRef= doc(db,"Post", postId);
-  //await updateDoc(postRef, {Comment: arrayUnion(comment)})
+const addComment= async(value, oldarray)=>{
+  var postId;
+ const LookingForPostComment= query(collection(db, "Post"), where("link", "==", value));
+  const querySnapshot1 =  await getDocs(LookingForPostComment);
+  querySnapshot1.forEach((doc)=>{postId=doc.id})
+  const postRef= doc(db,"Post", postId);
+  console.log(postRef)
+  const objectcomment= {Comment: comment.Comment, User: comment.User}
+  const plainObj= JSON.parse(JSON.stringify(objectcomment))
+  console.log(objectcomment)
+  console.log(plainObj)
 
-
+  await updateDoc(postRef, {
+    TestChange:false
+  });
+  //await updateDoc(postRef, {Comment: arrayUnion()})
 }
  
 
@@ -142,26 +146,20 @@ const addComment= async(event)=>{
       </form>
 
       {results.map((result) => (
-
         <div key={result.className}>
-
           <button onClick={()=>handleClick(result.className)}>{result.title}</button>
-
         </div>
-
       ))}
-
       {results2.map((result) => (
-
         <div key={result.link}>
-
           <h2>{result.title}</h2>
-
           <h3>{result.description}</h3>
-
           <embed src={result.link} width="100%" height="600px" />
-
           <h3>{result.rate}</h3>
+
+        
+          
+        
 
           <h4>Comment</h4>
           {result.Comment.map((comment)=>(
@@ -172,15 +170,13 @@ const addComment= async(event)=>{
 
               
           ))}
+          <input type="text" name="User" value={comment.User} onChange={handleChangeComment} placeholder="Put any user name you want"/>
+           <input type="text" name="Comment" value={comment.Comment} onChange={handleChangeComment} placeholder="Enter the comment"/>
 
+            <button onClick={()=>addComment(result.link, result.Comment)}>Add Comment</button>
+           
+          
 
-          <form >
-           <input type="test" name="user" value={comment.user} onChange={handleChangeComment} placeholder="Put any user name you want"/>
-           <input type="text" name="comment" value={comment.comment} onChange={handleChangeComment} placeholder="Enter the comment"/>
-
-            <button type="submit" onClick={()=>addComment(result.link)}>Add Comment</button>
-
-            </form>
 
 
         </div>
