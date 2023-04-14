@@ -75,8 +75,9 @@ export default function Dashboard(){
                         <img src={result.pic} />{result.className}
                     </div>
                     <div class="dash-class-card-body">{result.title}</div>
-                    
-                    <button className="class-page-button" onClick={()=> goToClass(result.title, result.className)}>go to class!</button>
+                    <div class="go-to-class-box">
+                        <button className="class-page-button" onClick={()=> goToClass(result.title, result.className)}>go to class!</button>
+                    </div>
                 </div>
              ))}
                
