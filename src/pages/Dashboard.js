@@ -57,9 +57,13 @@ export default function Dashboard(){
     const navigateToClassroom = () => {navigate('/classroom')}
 
 
-    const goToClass = (className) =>{
+    const goToClass = (title, className) =>{
         console.log( className)
+        sessionStorage.setItem('title', title)
         sessionStorage.setItem('className', className)
+
+        console.log('class: ', className)
+        console.log('title: ',title)
        navigateToClassroom()
 
     }
@@ -96,10 +100,6 @@ export default function Dashboard(){
 
                 <div class="dash-button">
                     <button type = "submit" onClick={navigateToNotes}>My Notes</button>
-                </div>
-
-                <div class="dash-button">
-                    <button type = "submit" onClick={navigateToSavedMaterials}>Favorites</button>
                 </div>
 
                 <div class="dash-button">

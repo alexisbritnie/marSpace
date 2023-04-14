@@ -442,6 +442,8 @@ body{
     height: 50%;
     border-radius: 20px;
     margin-top:30px;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .class-title{
     margin:0;
@@ -499,13 +501,26 @@ body{
     margin: 0;
     margin-left: -70px;
     color: black;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(165, 32, 32, 0.733);
     text-align: left;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 30px;
     border: none;
     display: inline-block;
+}
+.clear-button-title{
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    margin-left: 0px;
+    color: black;
+    background-color: rgba(165, 32, 32, 0.733);
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 30px;
+    border: none;
+    display:flex;
 }
 input[type="file"]{
     display: none;
@@ -553,7 +568,7 @@ input[type="file"]{
     box-sizing: border-box;
     background-color:white;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: 1580px;
+    height: 1000px;
     padding: 20px;
     width:80%;
     max-width:inherit;
@@ -569,10 +584,11 @@ input[type="file"]{
     width: 100%;
     max-width:inherit;
     border-radius: 6px;
-    margin-top: 55px;
-    justify-content:center;
-    align-items: center;
-    display: flex;
+    margin-top: 30px;
+    justify-content:start;
+    align-items:start;
+    display:-ms-grid;
+    overflow: hidden;
 }
 .arrowUp{
     font-size: 30px;

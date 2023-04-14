@@ -72,10 +72,6 @@ async function show(event) {
         
             <CustomLink to = "/login">Log in</CustomLink>
             <CustomLink to = "/signup">Sign up</CustomLink>
-
-            {/*temp for viewing */}
-            <CustomLink to = "/dashboard">Dashboard</CustomLink> 
-            <CustomLink to = "/classroom">Classroom</CustomLink>
             
             
         </ul>
