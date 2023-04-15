@@ -9,15 +9,18 @@ import Navbar from '../Navbar';
 
 export default function Signup(){
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
-        authDomain: "marspace-1afb7.firebaseapp.com",
-        projectId: "marspace-1afb7",
-        storageBucket: "marspace-1afb7.appspot.com",
-        messagingSenderId: "936429184235",
-        appId: "1:936429184235:web:f1ddee1d9a9e2f17b44aae",
-        measurementId: "G-5SSF4M5BTB"
-      };
+  const firebaseConfig = {
+    apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
+    authDomain: "marspace-1afb7.firebaseapp.com",
+    projectId: "marspace-1afb7",
+    storageBucket: "marspace-1afb7.appspot.com",
+    messagingSenderId: "936429184235",
+    appId: "1:936429184235:web:f1ddee1d9a9e2f17b44aae",
+    measurementId: "G-5SSF4M5BTB"
+  };
+
+  const navigate = useNavigate();
+  const navigateToLogin = () => {navigate('/login')};
       // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app);
@@ -34,11 +37,18 @@ const handleChange=(event)=>{
 const addDocu= (event) =>{
   event.preventDefault();
   addDoc(collection(db, "Credential"), {
+
     username: credit.username,
-    password: credit.password
-  })}
-  const navigate = useNavigate();
-  const navigateToLogin = () => {navigate('/login')};
+    password: credit.password,
+    SavedClass: []
+
+  })
+
+console.log("not here")
+navigateToLogin()
+}
+  
+  
 
 
     
@@ -64,7 +74,7 @@ const addDocu= (event) =>{
                     
                 </div>
 
-                <button type = "submit" class="login-button" onClick = {navigateToLogin} >Sign up</button>
+                <button type = "submit" class="login-button" >Sign up</button>
                 <div>
                     Already have an account? Click <Link to="/login">here</Link> to log in!
                 </div>

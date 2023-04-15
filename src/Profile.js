@@ -1,46 +1,63 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState} from "react";
+import { Link, useNavigate} from "react-router-dom";
 import React from 'react';
 import images from './images/classroom.png';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
-export default function Profile() {
-
-
-    
+export default function Profile(){
 
     return (
-        <div class="profile-full-screen-container">
+        <div class = "profile-full-screen-container">
             <div className="user-card">
                 <div className="profile-pic-square"></div>
-                <p className="user-name">Ajoy Kumar</p>
-                <p className="user-type">Teacher</p>
+                <h1 className="user-name">User Name</h1>
+                <h1 className="user-type">user type</h1>
+                <h1 className="rating">rating</h1>
             </div>
             <div className="profile-folder">
-                <form>
-                    <h1 className="about-title">About</h1>
-                    <div className="personal-info-box">
+                <h1 className="about-title">About</h1>
+                <label>
+                    Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
+                </label>
+                <label>
+                    Major: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
+                </label>
+                <label>
+                    Minor(s): <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
+                </label>
+                <label>
+                    Name: <input name="myInput" /><FaEye class='eyeIcon'/><FaEyeSlash class='eyeSlashIcon'/>
+                </label>
 
-                        <label>Name: <input name="myInput" /></label>
-                        <label>Major: <input name="myInput" /> </label>
-                    </div>
+                <p>
+                    <h1>Bruno, thinking of adding option for user to chose which info they want public/private. can you put lil eye icon by each question</h1>
+                    <h2>Britnie, I added a crossed out eye too in case you wanna play around with that or not.</h2>
+                    Student Status:
+                    <label>
+                        <input type="radio" name="myRadio" value="option1" />
+                         Freshman
+                    </label>
+                     <label>
+                        <input type="radio" name="myRadio" value="option2" />
+                        Sophmore
+                    </label>
+                    <label>
+                        <input type="radio" name="myRadio" value="option3" />
+                        Junior
+                    </label>
+                    <label>
+                        <input type="radio" name="myRadio" value="option3" />
+                        Senior
+                    </label>
+                    <label>
+                        <input type="radio" name="myRadio" value="option3" />
+                        Graduate
+                    </label>
+                </p>
 
-                    <div>
-                        User Type:
-                        <label>
-                            <input type="radio" name="myRadio" value="option1" />
-                            Teacher
-                        </label>
-                        <label>
-                            <input type="radio" name="myRadio" value="option2" />
-                            Student
-                        </label>
-                    </div>
-
-                </form>
             </div>
         </div>
-
+    
     )
 }

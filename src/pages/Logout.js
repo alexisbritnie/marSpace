@@ -1,8 +1,8 @@
-import { useState} from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import React from 'react';
-import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs } from 'firebase/firestore/lite';
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import NavbarLoggedIn from "../NavbarLoggedIn";
 import Home from "../pages/Home";
@@ -27,15 +27,13 @@ export default function Logout() {
     return (
         <>
             <NavbarLoggedIn />
-            <div class="logout-full-screen-container">
+            <div classname="hero">
                 <h1>Are you sure you want to logout?</h1>
-                <div class="logout-buttons-div">
-                    <div class="logout-buttons">
-                        <button type = "submit" onClick={logout}>Logout</button>
-                    </div>
-                    <div class="logout-buttons">
-                        <button type = "submit" onClick={navigateToDashboard}>I've changed my mind</button>
-                    </div>
+                <div class="dash-button">
+                    <button type="submit" onClick={logout}>Logout</button>
+                </div>
+                <div class="dash-button">
+                    <button type="submit" onClick={navigateToDashboard}>I've changed my mind</button>
                 </div>
             </div>
         </>

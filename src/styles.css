@@ -847,14 +847,13 @@ input[type="file"]{
     padding-top:30px;
 }
 .profile-pic-square{
-    background: 
-      url(./pages/images/classroom.png);
     width: 200px;
     height: 450px;
     background-size:cover;
     display: flex;
     margin: 30px;
     border-radius: 6px;
+    font-size: 200px;
 }
   
 .user-card{
@@ -981,5 +980,5 @@ input[type="file"]{
     color: white;
 }
 input:focus{
-    outline:none;
+    outline: none;
 }
