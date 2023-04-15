@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, updateDoc, getDoc, arrayRemove} from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, updateDoc, getDoc, arrayRemove, deleteDoc} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import Search from './Search';
 
@@ -234,7 +234,32 @@ const removeSavedPost= async (int)=>{
   await updateDoc(profileref,{
     SavedPost:arrayRemove(int)
   })}
+//Getting all the post  uploud by user
+const [userPost, setuserPost]= useState([])
+const Getmypost = async () => {
 
+  const q2= query(collection(db, "Post"), where("username", "==", credit.username));
+
+  const querySnapshot =  await getDocs(q2);
+
+
+  const searchResults = querySnapshot.docs.map((doc) => doc.data());
+
+
+  console.log(searchResults)
+  console.log(searchResults)
+
+  // Update state with search results
+
+  setuserPost(searchResults);
+}
+const userdeletepost= async(postlink)=>{
+  var postId;
+  const LookingForPostComment= query(collection(db, "Post"), where("link", "==", postlink));
+  const querySnapshot1 =  await getDocs(LookingForPostComment);
+  querySnapshot1.forEach((doc)=>{postId=doc.id})
+  await deleteDoc(doc(db, "Post", postId));
+}
 return (
   <div>
     <form onSubmit={addDocu}>
@@ -286,7 +311,17 @@ return (
           <h3>{result.rate}</h3>
         </div>
       ))}
-      
+    <h1>Getting what the user post</h1>
+    <button onClick={Getmypost}>show saved post</button>
+    {userPost.map((result,index) => (
+        <div key={index}>
+          <h2>{result.title}</h2>
+          <h3>{result.description}</h3>
+          <embed src={result.link} width="100%" height="600px" />
+          <button onClick={()=>{userdeletepost(result.link)}}>remove this class</button>
+          <h3>{result.rate}</h3>
+        </div>
+      ))}
 
     
 
