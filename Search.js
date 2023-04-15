@@ -164,8 +164,36 @@ const addSavedPost= async(value)=>{
 
 }
    
+//upvote
+const upvote= async(postlink)=>{
+  var postId
+ const LookingForPostComment= query(collection(db, "Post"), where("link", "==", postlink));
+  const querySnapshot1 =  await getDocs(LookingForPostComment);
+  querySnapshot1.forEach((doc)=>{postId=doc.id})
+  const postRef= doc(db,"Post", postId);
+  const snap1= await getDoc(postRef)
+  const oldscore= snap1.data().rate
+  var score= oldscore+1
+  await updateDoc(postRef,{
+    rate: score
+  })
 
+}
+//downvote
+const downvote= async(postlink)=>{
+  var postId
+ const LookingForPostComment= query(collection(db, "Post"), where("link", "==", postlink));
+  const querySnapshot1 =  await getDocs(LookingForPostComment);
+  querySnapshot1.forEach((doc)=>{postId=doc.id})
+  const postRef= doc(db,"Post", postId);
+  const snap1= await getDoc(postRef)
+  const oldscore= snap1.data().rate
+  var score= oldscore-1
+  await updateDoc(postRef,{
+    rate: score
+  })
 
+}
  
 
   return (
@@ -192,7 +220,9 @@ const addSavedPost= async(value)=>{
           <h2>{result.title}</h2>
           <h3>{result.description}</h3>
           <embed src={result.link} width="100%" height="600px" />
+          <button onClick={()=>upvote(result.link)}>Upvote</button>
           <h3>{result.rate}</h3>
+          <button onClick={()=>downvote(result.link)}>Downvote</button>
           <button onClick={()=>addSavedPost(result.link)}>Save Post</button>
           
         
