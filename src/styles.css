@@ -216,6 +216,51 @@ body{
 }
 
 
+/*Logout page stuff*/
+.logout-full-screen-container{
+    background-color: #ffdfbb;
+    height: 70vh;
+    width:auto;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    padding-top:30px;
+    text-align: center;
+}
+.logout-buttons{
+    width: 40%;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    display: block;
+    background-color: rgba(240, 240, 240, 0.924);
+    margin-top: 40px;
+    min-width: 300px;
+
+}
+.logout-buttons button{
+    border: none;
+    width: 100%;
+    display: block;
+    height: 50px;
+    padding:  2px 2px;
+    font-weight: normal;
+    box-shadow: 0 0 0 3px rgb(24, 148, 189);
+    border-radius: 10px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    min-width: 300px;
+}
+.logout-buttons-div{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
 
 /* Dashboard page */
 .dash-full-screen-container{
@@ -802,18 +847,15 @@ input[type="file"]{
     padding-top:30px;
 }
 .profile-pic-square{
-    
+    background: 
+      url(./pages/images/classroom.png);
     width: 200px;
     height: 450px;
     background-size:cover;
     display: flex;
     margin: 30px;
     border-radius: 6px;
-    font-size: 200px;
-    
-
 }
-
   
 .user-card{
     background-color: rgb(255, 255, 255);
