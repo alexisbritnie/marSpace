@@ -25,7 +25,7 @@ function App() {
   let Component
   return (
   <>
-    <Navbar />
+    
     
     <div className='container'>
       

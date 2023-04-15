@@ -1,23 +1,24 @@
-import { useState, useEffect} from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import React from 'react';
-import {initializeApp} from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc} from 'firebase/firestore/lite';
-import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc } from 'firebase/firestore/lite';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Search from "../Search";
 import ClassCard from "../ClassCard";
-import {getAuth, signOut} from "firebase/auth"
+import { getAuth, signOut } from "firebase/auth"
 import { QuerySnapshot } from "firebase/firestore";
+import NavbarLoggedIn from "../NavbarLoggedIn";
 
 
 
-export default function Dashboard(){
+export default function Dashboard() {
     const navigate = useNavigate();
-    const navigateToProfile = () => {navigate('/profile')};
-    const navigateToNotes = () => {navigate('/notes')};
-    const navigateToSavedMaterials = () => {navigate('/materials')};
-    const navigateToLogout  = () => {navigate('/logout')}
-    const navigateToSearchPage  = () => {navigate('/SearchPage')}
+    const navigateToProfile = () => { navigate('/profile') };
+    const navigateToNotes = () => { navigate('/notes') };
+    const navigateToSavedMaterials = () => { navigate('/materials') };
+    const navigateToLogout = () => { navigate('/logout') }
+    const navigateToSearchPage = () => { navigate('/SearchPage') }
     const auth = getAuth();
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
@@ -30,92 +31,93 @@ export default function Dashboard(){
     };
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const db=getFirestore(app);
+    const db = getFirestore(app);
     const docRef = doc(db, "Credential", sessionStorage.getItem('userid'))
 
     console.log(sessionStorage.getItem("userid"))
-    console.log(sessionStorage.getItem("username")) 
-    /*console.log(sessionStorage.getItem('token')) */  
-    const [saveCl, setsaveCl]=useState([])
+    console.log(sessionStorage.getItem("username"))
+    /*console.log(sessionStorage.getItem('token')) */
+    const [saveCl, setsaveCl] = useState([])
 
 
-    useEffect(() =>{
+    useEffect(() => {
         rando()
-    },[])
+    }, [])
 
-    const rando = async(event) =>{
+    const rando = async (event) => {
         const docSnap = await getDoc(docRef)
-        if (docSnap.exists()){
+        if (docSnap.exists()) {
             console.log('Doc data', docSnap.data())
-            const info= docSnap.data()
+            const info = docSnap.data()
             setsaveCl(info.SavedClass)
-        }else{
+        } else {
             console.log('nada')
         }
     }
 
-    const navigateToClassroom = () => {navigate('/classroom')}
+    const navigateToClassroom = () => { navigate('/classroom') }
 
 
-    const goToClass = (title, className) =>{
-        console.log( className)
+    const goToClass = (title, className) => {
+        console.log(className)
         sessionStorage.setItem('title', title)
         sessionStorage.setItem('className', className)
 
         console.log('class: ', className)
-        console.log('title: ',title)
-       navigateToClassroom()
+        console.log('title: ', title)
+        navigateToClassroom()
 
     }
-  
+
     return (
-        <div class = "dash-full-screen-container">
-        <div class="dashboard-container">
-        <div class="card-grid">
+        <>
+            <NavbarLoggedIn />
+            <div class="dash-full-screen-container">
+                <div class="dashboard-container">
+                    <div class="card-grid">
 
-            {saveCl.map((result)=> (
-                <div class= "dash-class-cards" key = {result.className}>
-                    <div class="dash-class-card-header card-image">
-                        <img src={result.pic} />{result.className}
+                        {saveCl.map((result) => (
+                            <div class="dash-class-cards" key={result.className}>
+                                <div class="dash-class-card-header card-image">
+                                    <img src={result.pic} />{result.className}
+                                </div>
+                                <div class="dash-class-card-body">{result.title}</div>
+                                <div class="gotoButtonDiv">
+                                    <button className="class-page-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
+                                </div>
+                            </div>
+                        ))}
+
                     </div>
-                    <div class="dash-class-card-body">{result.title}</div>
-                    
-                    <button className="class-page-button" onClick={()=> goToClass(result.title, result.className)}>go to class!</button>
+                    <div class="side-bar-form" >
+                        <h1 class="dashboard-title">Dashboard</h1>
+
+                        <div class="dash-profile-card">
+                            <form>
+                                <h1 class="dash-name">{sessionStorage.getItem("username")}</h1>
+                            </form>
+                        </div>
+
+                        <div class="dash-button">
+                            <button type="submit" onClick={navigateToProfile}>My Profile</button>
+                        </div>
+
+                        <div class="dash-button">
+                            <button type="submit" onClick={navigateToNotes}>My Notes</button>
+                        </div>
+
+
+
+                        <div class="dash-button">
+                            <button type="submit" onClick={navigateToLogout}>Logout</button>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
-             ))}
-               
             </div>
-            <div class="side-bar-form" >
-                <h1 class="dashboard-title">Dashboard</h1>
-                
-                <div class= "dash-profile-card">
-                    <form>
-                    <h1 class="dash-name">{sessionStorage.getItem("username")}</h1>
-                    </form>
-                </div>
-
-                <div class="dash-button">
-                    <button type = "submit" onClick={navigateToProfile}>My Profile</button>
-                </div>
-
-                <div class="dash-button">
-                    <button type = "submit" onClick={navigateToNotes}>My Notes</button>
-                </div>
-
-                <div class="dash-button">
-                    <button type = "submit" onClick={navigateToSearchPage}>Search</button>
-                </div>
-
-                <div class="dash-button">
-                    <button type = "submit" onClick={navigateToLogout}>Logout</button>
-                </div>
-                
-            </div>
-
-            
-
-        </div>
-      </div>
-
+        </>
     )
 }

@@ -4,6 +4,9 @@ import React from 'react';
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 import {getAuth, signOut} from "firebase/auth"
+import Navbar from '../Navbar';
+
+
 export default function Signup(){
 
     const firebaseConfig = {
@@ -40,6 +43,9 @@ const addDocu= (event) =>{
 
     
     return(
+      <>
+      <Navbar/>
+
         <div class = "full-screen-container">
         <div class="login-container">
             <h1 class="login-title" style={{fontSize: 39}}>Create an account</h1>
@@ -66,6 +72,7 @@ const addDocu= (event) =>{
 
         </div>
       </div>
+      </>
     )
 
 }

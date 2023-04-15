@@ -1,14 +1,13 @@
-import { useState} from "react";
-import { Link} from "react-router-dom";
-import React from 'react';
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
-import Search from "../Search";
-import NavbarLoggedIn from "../NavbarLoggedIn";
+import React,{useState} from 'react';
+import Search from './Search';
+import { FaSearch } from "react-icons/fa"
+import { Link, useMatch, useResolvedPath} from "react-router-dom"
 
 
-export default function SearchPage(){
+export default function NavbarLoggedIn(){
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
         authDomain: "marspace-1afb7.firebaseapp.com",
@@ -64,14 +63,29 @@ async function show(event) {
     <button type= "submit">Find</button>
 */}
 
-    return (
-      <>
-      <NavbarLoggedIn/>
-        <div class = "SearchPage-full-screen-container">
-            <div class = "search-bar-box">
-                <Search/>
-            </div>
-        </div>
-        </>
+    return <nav className="nav">
+        
+        <h1 className="site-title" >marSpace</h1>
+        
+        <ul>
+            
+        
+            <CustomLink to = "/searchPage">Search</CustomLink>
+            <CustomLink to = "/dashboard"> Dashboard</CustomLink>
+            
+            
+        </ul>
+    </nav>
+}
+
+function CustomLink({ to, children, ...props}){
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true})
+    return(
+        <li className = {isActive? "active": ""}>
+            <Link to = {to} {...props}>
+                {children}
+            </Link>
+        </li>
     )
 }

@@ -72,6 +72,7 @@ async function show(event) {
         
             <CustomLink to = "/login">Log in</CustomLink>
             <CustomLink to = "/signup">Sign up</CustomLink>
+            <CustomLink to = "/dashboard"> Dashboard</CustomLink>
             
             
         </ul>

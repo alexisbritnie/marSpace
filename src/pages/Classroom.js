@@ -8,6 +8,7 @@ import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, u
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { onSnapshot } from 'firebase/firestore'
 import Login from "./Login";
+import NavbarLoggedIn from "../NavbarLoggedIn";
 
 
 export default function Classroom() {
@@ -155,10 +156,36 @@ export default function Classroom() {
   useEffect(() => {
     getPost()
   }, [])
+  const [comment, setComment] = useState( {User: "", Comment:""})
+  const handleChangeComment=(event)=>{
+    event.preventDefault();
+    const{name,value}=event.target;
+    setComment((prev) =>{
+      return{...prev,[name]:value}
+    })
+  }
 
-  console.log('savepost: ', savePost)
+  const addComment= async(value)=>{
+    var postId
+    const LookingForPostComment= query(collection(db, "Post"), where("link", "==", value));
+     const querySnapshot1 =  await getDocs(LookingForPostComment);
+     querySnapshot1.forEach((doc)=>{postId=doc.id})
+     const postRef= doc(db,"Post", postId);
+     const snap1= await getDoc(postRef)
+     const olda= snap1.data().Comment
+     const objectcomment= {Comment: comment.Comment, User: sessionStorage.getItem("username")}
+     olda.push(objectcomment)
+     await updateDoc(postRef,{
+       Comment: olda
+     })
+     setComment({Comment: ""})
+     getPost()
+   }
+
+
   return (
-
+<>
+<NavbarLoggedIn/>
     <div class="classroom-full-screen-container">
 
       <form onSubmit={SingleUpload}>
@@ -167,10 +194,13 @@ export default function Classroom() {
       </form>
 
       <div class="class-title-bar">
-        <h1 class="class-title">{sessionStorage.getItem('title')}</h1>
-        <FaPlusCircle class='addClass' /> {/*add class to dashboard */}
-        <button class= "clear-button-title"onClick={addSavedClass}></button>
-       
+        <div class="class-title-div">
+          <h1 class="class-title">{sessionStorage.getItem('title')}</h1>
+        </div>
+        <div class="addClassButtonDiv">
+          <FaPlusCircle class='addClass' /> {/*add class to dashboard */}
+          <button class="clear-button-title" onClick={addSavedClass}></button>
+        </div>
 
       </div>
 
@@ -203,9 +233,11 @@ export default function Classroom() {
               <embed src={result.link + "#view=FitH"} width="100%" height="900" />
 
             </div>
-            <h3>{result.rate}</h3>
-            <FaArrowCircleUp class='arrowUp' />
-            <FaArrowCircleDown class='arrowDown' />
+            <div class="note-ratings">
+              <FaArrowCircleUp class='arrowUp' />
+              <h3>{result.rate}</h3>
+              <FaArrowCircleDown class='arrowDown' />
+            </div>
           </div>
           <div class="discussion-box-container">
             <h1> Class Discussion</h1>
@@ -231,8 +263,10 @@ export default function Classroom() {
             </div>
             <div class="division-line"></div>
             <div class="typing-comment-box">
-              <input class="comment-input" type="text"></input>
-              <button
+           <input type="text" name="Comment" class="comment-input" value={comment.Comment} onChange={handleChangeComment} placeholder="Enter the comment"/>
+
+           
+              <button onClick={()=>addComment(result.link)}
                 class="send-button"
                 type="submit">SEND
 
@@ -245,5 +279,6 @@ export default function Classroom() {
       ))}
 
     </div>
+    </>
   )
 }

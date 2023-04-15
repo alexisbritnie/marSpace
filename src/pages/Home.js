@@ -1,8 +1,11 @@
 import images from './images/classroom.png';
 import Footer from '../Footer';
+import Navbar from '../Navbar';
 
 export default function Home(){
     return (
+        <>
+        <Navbar />
     <div className="bg">
         <div className="home-letter">
             <h1>Let us take you to the<br></br> 
@@ -13,6 +16,7 @@ export default function Home(){
             </p>
         </div>
     </div>
+    </>
     );
 }
 

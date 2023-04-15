@@ -4,6 +4,7 @@ import React from 'react';
 import {initializeApp} from 'firebase/app';
 import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs} from 'firebase/firestore/lite';
 import { and } from "firebase/firestore";
+import Navbar from "../Navbar"
 
 export default function Login(){
 
@@ -74,6 +75,8 @@ if( userid === passid){
 
 
     return(
+      <>
+      <Navbar />
         <div class = "full-screen-container">
         <div class="login-container">
             <h1 class="login-title">Log in</h1>
@@ -104,15 +107,12 @@ if( userid === passid){
                 <button 
                 type = "submit" class="login-button" >Log in {/*add on submit for form */}
                 </button>
-
-                <div>
-                    <Link to="/reset">Forgot Password</Link>
-                </div>
                 <div>
                     Don't have an account? <Link to="/signup">Signup</Link> now!
                 </div>
             </form>
         </div>
       </div>
+      </>
     )
 }
