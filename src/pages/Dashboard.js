@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import React from 'react';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc,updateDoc,arrayRemove} from 'firebase/firestore/lite';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Search from "../Search";
 import ClassCard from "../ClassCard";
@@ -57,7 +57,6 @@ export default function Dashboard() {
 
     const navigateToClassroom = () => { navigate('/classroom') }
 
-
     const goToClass = (title, className) => {
         console.log(className)
         sessionStorage.setItem('title', title)
@@ -66,8 +65,17 @@ export default function Dashboard() {
         console.log('class: ', className)
         console.log('title: ', title)
         navigateToClassroom()
-
     }
+
+    const removeSavedPost= async (value)=>{
+        console.log("in")
+        console.log(value)
+        const profileref= doc(db,"Credential",sessionStorage.getItem("userid"))
+        await updateDoc(profileref,{
+          SavedClass:arrayRemove(value)
+        })
+    rando()}
+
 
     return (
         <>
@@ -84,6 +92,7 @@ export default function Dashboard() {
                                 <div class="dash-class-card-body">{result.title}</div>
                                 <div class="gotoButtonDiv">
                                     <button className="class-page-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
+                                    <button className="class-page-button" onClick={() => removeSavedPost(result)}>remove this class!</button>
                                 </div>
                             </div>
                         ))}

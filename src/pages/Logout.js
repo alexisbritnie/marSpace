@@ -27,13 +27,15 @@ export default function Logout() {
     return (
         <>
             <NavbarLoggedIn />
-            <div classname="hero">
+            <div class="logout-full-screen-container">
                 <h1>Are you sure you want to logout?</h1>
-                <div class="dash-button">
-                    <button type="submit" onClick={logout}>Logout</button>
-                </div>
-                <div class="dash-button">
-                    <button type="submit" onClick={navigateToDashboard}>I've changed my mind</button>
+                <div class="logout-buttons-div">
+                    <div class="logout-buttons">
+                        <button type = "submit" onClick={logout}>Logout</button>
+                    </div>
+                    <div class="logout-buttons">
+                        <button type = "submit" onClick={navigateToDashboard}>I've changed my mind</button>
+                    </div>
                 </div>
             </div>
         </>

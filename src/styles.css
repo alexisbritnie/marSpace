@@ -542,9 +542,9 @@ body{
     box-sizing: border-box;
     background-color:white;
     box-shadow: 7px 7px 10px rgba(156, 112, 55, 0.658);
-    height: 320px;
+    height: 350px;
     padding: 20px;
-    width:40%;
+    width:50%;
     max-width:inherit;
     border-radius: 6px;
     margin-top:30px;
@@ -557,14 +557,15 @@ body{
     text-align: left;
     font-size: 1.15rem;
     font-weight: bold;
-    width: 50%;
+    width: 90%;
 }
 .note-description-box{
     margin-top:5px;
     color: black;
     text-align: left;
     font-size: 1rem;
-    width: 50%;
+    width: 90%;
+    height: 60px;
 }
 .clear-button{
     height: 40px;
@@ -598,7 +599,7 @@ input[type="file"]{
     margin-top: 15px;
     justify-content:center;
     align-items: center;
-    display: flex;
+    display: -ms-grid;
 }
 .uploadFileIcon{
     font-size: 75px;
@@ -724,7 +725,7 @@ input[type="file"]{
 .typing-comment-box{
     display: flex;
     height: 50px;
-    width: 60rem;
+    width: 90%;
     justify-content: center;
     margin-top: -10px;
 }
@@ -745,7 +746,7 @@ input[type="file"]{
     border-radius: 20px;
     outline: none;
     cursor: pointer;
-    width: 10%;
+    width: 20%;
     margin-left: 10px;
 }
 .send-button:hover{
