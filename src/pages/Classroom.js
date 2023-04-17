@@ -250,6 +250,7 @@ export default function Classroom() {
             </div>
 
             <button class="submit-note-button" type="submit">Submit</button>
+            <h1 class="pdfNotice">PDF Files ONLY!</h1>
           </form>
         </div>
 
@@ -263,10 +264,14 @@ export default function Classroom() {
 
               </div>
               <div class="note-ratings">
-                <button onClick={() => upvote(result.link)}>Upvote</button>
+                <label class="Upvote-clear-button">
+                  <submit class="upvoteFont" onClick={() => upvote(result.link)}>O</submit>
+                </label>
                 <FaArrowCircleUp class='arrowUp' />
                 <h3>{result.rate}</h3>
-                <button onClick={() => downvote(result.link)}>Downvote</button>
+                <label class="Downvote-clear-button">
+                  <submit onClick={() => downvote(result.link)}>O</submit>
+                </label>
                 <FaArrowCircleDown class='arrowDown' />
               </div>
             </div>

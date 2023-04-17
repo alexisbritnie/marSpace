@@ -433,7 +433,7 @@ body{
     object-position: start;
     transition: 200ms transform ease-in-out;
 }
-.class-page-button{
+.class-go-button{
     background-color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
@@ -443,10 +443,30 @@ body{
     border-radius: 20px;
     border-color: #ffa834;
     border-width: 3px;
-    height: 40px;
+    height: 50px;
+    width: 50%;
+    margin-right: 4px;
 }
-.class-page-button:hover{
+.class-go-button:hover{
     background-color: #ffa834;
+    color: white;
+}
+.class-remove-button{
+    background-color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 10px 5px 10px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 3px;
+    height: 50px;
+    width: 50%;
+    margin-left: 4px;
+}
+.class-remove-button:hover{
+    background-color: red;
     color: white;
 }
 .gotoButtonDiv{
@@ -529,6 +549,7 @@ body{
     border-color: black;
     border-style: solid;
     border-width: 1px;
+    cursor: pointer;
 }
 .addClassButtonDiv{
     display:inline-flex;
@@ -567,20 +588,6 @@ body{
     width: 90%;
     height: 60px;
 }
-.clear-button{
-    height: 40px;
-    width: 40px;
-    margin: 0;
-    margin-left: -70px;
-    color: black;
-    background-color: rgba(165, 32, 32, 0);
-    text-align: left;
-    font-size: 1.25rem;
-    font-weight: bold;
-    padding: 30px;
-    border: none;
-    display: inline-block;
-}
 input[type="file"]{
     display: none;
 }
@@ -598,13 +605,30 @@ input[type="file"]{
     border-radius: 6px;
     margin-top: 15px;
     justify-content:center;
+    text-align: center;
     align-items: center;
     display: -ms-grid;
 }
 .uploadFileIcon{
     font-size: 75px;
     /*color:#ff9019; orange*/
-    color:#444444; /*black*/
+    color:#444444; /*black*/ 
+}
+.clear-button{
+    height: 80px;
+    width: 40px;
+    margin: 0;
+    margin-left: -70px;
+    margin-top: -10px;
+    color: black;
+    background-color: rgba(165, 32, 32, 0);
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 30px;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
 }
 .submit-note-button{
     font-size: 20px;
@@ -621,6 +645,11 @@ input[type="file"]{
 }
 .submit-note-button:hover{
     background-color: #ffa834;
+}
+.pdfNotice{
+    display: inline;
+    margin-left: 20px;
+    font-size: 20px;
 }
 /*Class Notes Stuff (2nd box)*/
 .classroom-container{
@@ -653,14 +682,45 @@ input[type="file"]{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 200px;
+    width: 300px;
 }
 .arrowUp{
     font-size: 30px;
-    margin-left: 20px;
+    margin-left: -88px;
+}
+.Upvote-clear-button{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin: 0;
+    color: black;
+    background-color: rgba(165, 32, 32, 0);
+    text-align: center;
+    font-size: 2rem;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0);
+    z-index: 10;
 }
 .arrowDown{
     font-size: 30px;
+    margin-left: -88px;
+}
+.Downvote-clear-button{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin: 0;
+    color: black;
+    background-color: rgba(165, 32, 32, 0);
+    text-align: center;
+    font-size: 2rem;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0);
+    z-index: 10;
 }
 .comment-button{
     margin: 0;
@@ -830,8 +890,66 @@ input[type="file"]{
     width: 100%;
     padding: 10px 10px 15px 10px;
 }
-
-
+.note-ratings-Notes{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+}
+.arrowUp-Notes{
+    font-size: 30px;
+    margin-left: -88px;
+}
+.Upvote-clear-button-Notes{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin: 0;
+    color: black;
+    background-color: rgba(165, 32, 32, 0);
+    text-align: center;
+    font-size: 2rem;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0);
+    z-index: 10;
+}
+.arrowDown-Notes{
+    font-size: 30px;
+    margin-left: -88px;
+}
+.Downvote-clear-button-Notes{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin: 0;
+    color: black;
+    background-color: rgba(165, 32, 32, 0);
+    text-align: center;
+    font-size: 2rem;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0);
+    z-index: 10;
+}
+.removeClassButton-Notes{
+    background-color: white;
+    border-radius: 20px;
+    height: 40px;
+    padding: 0px 8px 0px 8px;
+    border-style: solid;
+    border-width: 3px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: -20px;
+    cursor: pointer;
+}
+.removeClassButton-Notes:hover{
+    background-color: red;
+    color: white;
+}
 
 
 /*profile page */

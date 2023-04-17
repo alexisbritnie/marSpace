@@ -91,8 +91,8 @@ export default function Dashboard() {
                                 </div>
                                 <div class="dash-class-card-body">{result.title}</div>
                                 <div class="gotoButtonDiv">
-                                    <button className="class-page-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
-                                    <button className="class-page-button" onClick={() => removeSavedPost(result)}>remove this class!</button>
+                                    <button className="class-go-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
+                                    <button className="class-remove-button" onClick={() => removeSavedPost(result)}>remove this class!</button>
                                 </div>
                             </div>
                         ))}

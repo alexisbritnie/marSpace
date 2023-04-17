@@ -130,13 +130,17 @@ export default function Notes() {
                 <embed src={result.link + "#view=FitH"} width="100%" height="900" />
   
               </div>
-              <div class="note-ratings">
-              <button onClick={()=>upvote(result.link)}>Upvote</button>
-                <FaArrowCircleUp class='arrowUp' />
+              <div class="note-ratings-Notes">
+                <label class="Upvote-clear-button-Notes">
+                  <submit class="upvoteFont" onClick={() => upvote(result.link)}>O</submit>
+                </label>
+                <FaArrowCircleUp class='arrowUp-Notes' />
                 <h3>{result.rate}</h3>
-                <button onClick={()=>downvote(result.link)}>Downvote</button>
-                <button onClick={()=>{userdeletepost(result.link)}}>remove this class</button>
-                <FaArrowCircleDown class='arrowDown' />
+                <label class="Downvote-clear-button-Notes">
+                  <submit onClick={() => downvote(result.link)}>O</submit>
+                </label>
+                <FaArrowCircleDown class='arrowDown-Notes' />
+                <button class="removeClassButton-Notes" onClick={()=>{userdeletepost(result.link)}}>remove this post</button>
               </div>
             </div>
             <div class="discussion-box-container">
