@@ -1,0 +1,10 @@
+1. Go to visual code studio and select any folder
+2. Inside the folder, open a teminal
+3. Locate to the your folder location if you have to in the terminal, type npx create-react-app your_project_name
+4. In the terminal, type: cd your_project_name
+5. Type npm install firebase
+6. Type npm install react-router-dom
+7. Type npm install react-icons
+8. Paste all the file from "src" in our github
+9. In the terminal type npm start
+Happy coding
