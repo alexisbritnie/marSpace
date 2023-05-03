@@ -9,14 +9,12 @@ import Home from "../pages/Home";
 
 export default function Logout() {
 
-    const auth = getAuth();
     const navigate = useNavigate();
     const navigateToDashboard = () => { navigate('/dashboard') };
     const navigateToHome = () => { navigate('/') };
 
     const logout = async () => {
         try {
-            await signOut(auth);
             console.log('you are signed out')
         } catch (err) {
             console.error(err)

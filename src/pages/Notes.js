@@ -111,7 +111,7 @@ export default function Notes() {
   
         <div class="class-title-bar">
           <div class="class-title-div">
-            <h1 class="class-title">My Past Note</h1>
+            <h1 class="class-title">My Past Notes</h1>
           </div>
           
   

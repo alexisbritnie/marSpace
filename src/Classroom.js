@@ -58,6 +58,8 @@ export default function Classroom() {
   function handleAllDoc(e) {
     e.preventDefault();
     const pickedFile = e.target.files;
+    console.log('picked file: ', pickedFile[0].name)
+    sessionStorage.setItem('fileName',pickedFile[0].name)
     setAllDoc(pickedFile);
   }
   function SingleUpload(e) {
@@ -231,9 +233,9 @@ export default function Classroom() {
 
         <div class="upload-notes-container">
           <form onSubmit={SingleUpload}>
-            <input class="note-name-box" type="string" name="title" value={Post.password} onChange={handleChange3} placeholder="Enter your note's title:" />
+            <input class="note-name-box" type="string" name="title" value={Post.password} onChange={handleChange3} placeholder="Enter your note's title:"  maxLength={30}/>
             <div></div>
-            <input class="note-description-box" type="string" name="description" value={Post.password} onChange={handleChange3} placeholder="Enter a short description" />
+            <textarea class="note-description-box" type="string" name="description" value={Post.password} onChange={handleChange3} placeholder="Enter a short description" maxLength={100}/>
 
             <div className="upload-doc-container">
               <FaFileUpload class='uploadFileIcon' />
@@ -241,9 +243,14 @@ export default function Classroom() {
               <label class="clear-button">
                 <input type="file" onChange={handleAllDoc} className="choose-file" /> {/*choose file */}
               </label>
+              <div>
+              <p>{sessionStorage.getItem('fileName')}</p>
+              </div>
+             
             </div>
 
             <button class="submit-note-button" type="submit">Submit</button>
+            <h1 class="pdfNotice">PDF Files ONLY!</h1>
           </form>
         </div>
 
@@ -257,10 +264,14 @@ export default function Classroom() {
 
               </div>
               <div class="note-ratings">
-                <button onClick={() => upvote(result.link)}>Upvote</button>
+                <label class="Upvote-clear-button">
+                  <submit class="upvoteFont" onClick={() => upvote(result.link)}>O</submit>
+                </label>
                 <FaArrowCircleUp class='arrowUp' />
                 <h3>{result.rate}</h3>
-                <button onClick={() => downvote(result.link)}>Downvote</button>
+                <label class="Downvote-clear-button">
+                  <submit onClick={() => downvote(result.link)}>O</submit>
+                </label>
                 <FaArrowCircleDown class='arrowDown' />
               </div>
             </div>

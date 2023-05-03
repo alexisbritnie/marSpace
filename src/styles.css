@@ -410,8 +410,8 @@ body{
     border:none;
     box-shadow: 7px 7px 7px rgba(153, 195, 207, 0.856);
     border-radius: .25rem;   
-    height: 300px;
-    width: 250px; 
+    height: 400px;
+    width: 300px; 
     display: grid;  
 }
 .dash-class-card-header{

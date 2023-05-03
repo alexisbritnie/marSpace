@@ -19,6 +19,7 @@ export default function Dashboard() {
     const navigateToSavedMaterials = () => { navigate('/materials') };
     const navigateToLogout = () => { navigate('/logout') }
     const navigateToSearchPage = () => { navigate('/SearchPage') }
+    const auth = getAuth();
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
         authDomain: "marspace-1afb7.firebaseapp.com",
@@ -56,7 +57,6 @@ export default function Dashboard() {
 
     const navigateToClassroom = () => { navigate('/classroom') }
 
-
     const goToClass = (title, className) => {
         console.log(className)
         sessionStorage.setItem('title', title)
@@ -65,17 +65,17 @@ export default function Dashboard() {
         console.log('class: ', className)
         console.log('title: ', title)
         navigateToClassroom()
-
     }
-    //Remove saved post
-const removeSavedPost= async (value)=>{
-    console.log("in")
-    console.log(value)
-    const profileref= doc(db,"Credential",sessionStorage.getItem("userid"))
-    await updateDoc(profileref,{
-      SavedClass:arrayRemove(value)
-    })
-rando()}
+
+    const removeSavedPost= async (value)=>{
+        console.log("in")
+        console.log(value)
+        const profileref= doc(db,"Credential",sessionStorage.getItem("userid"))
+        await updateDoc(profileref,{
+          SavedClass:arrayRemove(value)
+        })
+    rando()}
+
 
     return (
         <>
@@ -91,8 +91,8 @@ rando()}
                                 </div>
                                 <div class="dash-class-card-body">{result.title}</div>
                                 <div class="gotoButtonDiv">
-                                    <button className="class-page-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
-                                    <button className="class-page-button" onClick={() => removeSavedPost(result)}>remove this class!</button>
+                                    <button className="class-go-button" onClick={() => goToClass(result.title, result.className)}>go to class!</button>
+                                    <button className="class-remove-button" onClick={() => removeSavedPost(result)}>remove this class!</button>
                                 </div>
                             </div>
                         ))}

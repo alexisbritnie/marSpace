@@ -19,7 +19,7 @@ export default function Dashboard() {
     const navigateToSavedMaterials = () => { navigate('/materials') };
     const navigateToLogout = () => { navigate('/logout') }
     const navigateToSearchPage = () => { navigate('/SearchPage') }
-    const auth = getAuth();
+    
     const firebaseConfig = {
         apiKey: "AIzaSyBi28e8xEpJvwGgSGUqWZXvAe9aLfBi8Ow",
         authDomain: "marspace-1afb7.firebaseapp.com",
@@ -41,6 +41,7 @@ export default function Dashboard() {
 
 
     useEffect(() => {
+
         rando()
     }, [])
 
